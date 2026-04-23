@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONE FACE Deals - Your Ultimate Deal Destination</title>
+    
+    <meta property="og:title" content="ONE FACE Deals - Sri Lanka">
+    <meta property="og:description" content="Mini Bags, Market Bags සහ Cake Bags සඳහා ලංකාවේ හොඳම තොග මිල ගණන්! ඔබට අවශ්‍ය සයිස් එක සහ වර්ණය තෝරාගෙන අදම ඇණවුම් කරන්න.">
+    <meta property="og:image" content="https://i.ibb.co/qYQg0D9L/20260422-211236.jpg">
+    <meta property="og:url" content="https://onefacesrilanka-star.github.io/ONE-FACE-Deals-Sri-Lanka/">
+    <meta property="og:type" content="website">
+
+    <style>
+        :root {
+            --dark-green: #004d40; 
+            --orange: #ff9800; 
+            --white: #ffffff;
+            --grey: #f4f4f9;
+            --dark-grey: #333333;
+            --light-grey: #dddddd;
+            --text-grey: #666666;
+            --price-red: #d32f2f; 
+        }
+
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-image: url('https://i.ibb.co/CsBL4wkz/A-detailed-studio-202604172105.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--dark-grey);
+        }
+        
+        /* 🟢 Intro Video Splash Screen Styles 🟢 */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000; /* වීඩියෝ එකේ පසුබිම් වර්ණය */
+            z-index: 999999; /* හැමදේටම උඩින් පේන්න */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+        }
+        #splash-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ෆෝන් එකේ ස්ක්‍රීන් එක පිරෙන්න */
+        }
+        .hide-splash {
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+
+        .overlay { background-color: rgba(255, 255, 255, 0.90); min-height: 100vh; }
+
+        .vfx-on-scroll-container { width: 100%; height: 300px; overflow: hidden; position: relative; }
+        .scroll-image { width: 100%; height: 100%; object-fit: cover; opacity: 1; transition: opacity 0.1s ease-out; }
+
+        .header { background-color: var(--white); padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: flex-start; gap: 20px; position: sticky; top: 0; z-index: 999; }
+        .header img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 3px solid var(--dark-green); }
+        .header-text { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .header h1 { font-size: 27px; margin: 0; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold; line-height: 1.2; }
+        .header h1 .one-face { color: var(--dark-green); }
+        .header h1 .deals { color: var(--orange); }
+        .header .slogan { font-size: 12px; color: var(--text-grey); margin: 3px 0 0 0; text-transform: uppercase; letter-spacing: 0.5px; font-weight: normal; }
+        
+        .container { padding: 15px; max-width: 900px; margin: 0 auto; }
+        
+        .category-header { margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid var(--dark-green); padding-bottom: 10px; }
+        .cat-title { font-size: 22px; color: var(--dark-green); margin: 0 0 5px 0; font-weight: bold; }
+        .cat-subtitle { font-size: 13px; color: var(--text-grey); margin: 0; line-height: 1.4;}
+        
+        .size-note-main { display: inline-block; background-color: #222; color: #fff; padding: 4px 10px; border-radius: 5px; font-size: 11px; margin-top: 8px; font-weight: bold; letter-spacing: 0.5px; }
+        .modal-size-note { font-size: 10px; background: #222; color: #fff; padding: 2px 6px; border-radius: 3px; display: inline-block; margin-top: 2px; margin-bottom: 5px; margin-left: 20px; font-weight: normal;}
+
+        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .product-card { background: var(--white); border: 1px solid var(--light-grey); border-radius: 8px; padding: 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; }
+        .product-card:hover { box-shadow: 0 6px 15px rgba(0,0,0,0.15); transform: translateY(-3px); border-color: var(--orange);} 
+        
+        .product-image { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 5px; margin-bottom: 8px; border: 1px solid #eee; }
+        
+        .product-title { font-size: 14px; color: var(--dark-grey); margin: 0 0 5px 0; height: 38px; overflow: hidden; font-weight: bold; line-height: 1.3;}
+        
+        .price-row-top { display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 5px; }
+        .old-price { text-decoration: line-through; color: var(--text-grey); font-size: 13px; }
+        .free-print-badge { background-color: #d32f2f; color: white; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.5px;}
+        .selling-price { font-size: 13px; color: var(--dark-green); font-weight: bold; margin: 5px 0;}
+        .wholesale-label { font-size: 11px; color: var(--text-grey); display: block; margin-top: 5px;}
+        .new-price { color: var(--orange); font-size: 18px; font-weight: bold; margin: 2px 0 8px 0; } 
+        .view-btn { background-color: var(--orange); color: var(--white); padding: 6px 10px; border-radius: 4px; font-size: 12px; display: inline-block; width: 80%; font-weight: bold;}
+        
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); }
+        .modal-content { background-color: var(--white); margin: 5% auto; padding: 15px; border-radius: 10px; width: 85%; max-width: 400px; text-align: center; position: relative; animation: slideDown 0.3s ease; max-height: 90vh; overflow-y: auto;}
+        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .close { position: absolute; right: 15px; top: 10px; font-size: 28px; font-weight: bold; color: var(--text-grey); cursor: pointer; }
+        .close:hover { color: var(--orange); }
+        
+        .custom-inputs-box { display: none; background: #fff3e0; border: 1px dashed var(--orange); padding: 10px; border-radius: 8px; margin: 10px 0; }
+        .custom-inputs-box p { font-size: 12px; font-weight: bold; margin: 0 0 8px 0; color: var(--dark-green); }
+        .custom-input-row { display: flex; justify-content: center; gap: 5px; }
+        .custom-input-row input { width: 28%; padding: 5px; text-align: center; font-weight: bold; border: 1px solid #ccc; border-radius: 4px; }
+
+        .color-selection { margin: 8px 0; padding: 10px; background: var(--grey); border-radius: 8px; border: 1px solid var(--light-grey); }
+        .color-selection p { font-size: 14px; font-weight: bold; color: var(--dark-grey); margin: 0 0 8px 0; }
+        .color-palette { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .color-circle { width: 30px; height: 30px; border-radius: 50%; cursor: pointer; border: 2px solid #ccc; transition: 0.2s; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.1);}
+        .color-circle.selected { border: 3px solid var(--orange); transform: scale(1.2); box-shadow: 0 0 8px var(--orange); }
+        
+        .c-white { background-color: #ffffff; }
+        .c-black { background-color: #222222; }
+        .c-darkblue { background-color: #003399; }
+        .c-lightgreen { background-color: #76d776; }
+        .c-yellow { background-color: #fce100; }
+        .c-other { background: conic-gradient(red, yellow, lime, aqua, blue, magenta); }
+
+        .qty-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 8px 0; background: var(--grey); padding: 8px; border-radius: 8px; border: 1px solid var(--light-grey); }
+        .qty-btn { background: var(--dark-green); color: white; border: none; width: 30px; height: 30px; border-radius: 5px; font-size: 20px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; padding-bottom: 2px; transition: 0.2s;}
+        .qty-btn:active { background: var(--orange); }
+        .qty-input { width: 60px; text-align: center; font-size: 15px; font-weight: bold; border: 1px solid #ccc; border-radius: 5px; height: 30px; }
+        
+        .total-price-box { font-size: 16px; font-weight: bold; color: var(--dark-grey); margin: 8px 0; background: #ffebee; padding: 8px; border-radius: 8px; border: 1px dashed var(--price-red); line-height: 1.3; }
+
+        .modal-desc { font-size: 13px; color: #444; text-align: left; background: var(--grey); padding: 10px; border-radius: 5px; margin: 8px 0; line-height: 1.4; border: 1px solid var(--light-grey);}
+        #modalBuyBtn { background-color: #25D366; color: var(--white); padding: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; display: block; margin-top: 5px; font-size: 15px; }
+        
+        .footer { background-color: var(--dark-green); color: var(--white); text-align: center; padding: 25px 10px; margin-top: 40px; }
+
+        #zoomLightbox { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); text-align: center; }
+        #zoomedImg { max-width: 95%; max-height: 80vh; margin-top: 15vh; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); }
+        .close-zoom { position: absolute; right: 25px; top: 20px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div id="splash-screen">
+    <video id="splash-video" autoplay muted playsinline>
+        <source src="intro.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="overlay">
+    
+    <div class="vfx-on-scroll-container">
+        <img src="https://i.ibb.co/SX02dr7X/Resize-this-image-202604231858.jpg" class="scroll-image" id="vfxScrollImage">
+    </div>
+
+    <div class="header">
+        <img src="https://i.ibb.co/qYQg0D9L/20260422-211236.jpg" alt="Logo">
+        <div class="header-text">
+            <h1><span class="one-face">ONE FACE</span> <span class="deals">Deals</span></h1>
+            <p class="slogan">YOUR ULTIMATE DEAL DESTINATION</p>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="category-header">
+            <h2 class="cat-title">1. Mini Bags</h2>
+            <p class="cat-subtitle">ෆාමසි, ෆෝන් කඩ, සහ ගිෆ්ට් සඳහා</p>
+            <span class="size-note-main">පළල x උස x පතුල ලෙස දක්වා ඇත | Width x Height x Gusset</span>
+        </div>
+        
+        <div class="product-grid">
+            
+            <div class="product-card" onclick="openModal('Compact Gift Bag - 6&quot; x 8&quot; x 3&quot;', 'Rs. 89', 'Rs. 69', 'Rs. 44', '✔️ Size: 6&quot; x 8&quot; x 3&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/jP1yHPP5/White-shopping-bag-202604230959.jpg')">
+                <img src="https://i.ibb.co/jP1yHPP5/White-shopping-bag-202604230959.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Compact Gift Bag<br> 6" x 8" x 3"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 89</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 69</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 44</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Classic Mini Bag - 8&quot; x 10&quot; x 3&quot;', 'Rs. 94', 'Rs. 74', 'Rs. 49', '✔️ Size: 8&quot; x 10&quot; x 3&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/vFk9T1C/White-shopping-bag-202604222235.jpg')">
+                <img src="https://i.ibb.co/vFk9T1C/White-shopping-bag-202604222235.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Classic Mini Bag<br> 8" x 10" x 3"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 94</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 74</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 49</div>
+                <div class="view-btn">View Details</div>
+            </div>                       
+            
+            <div class="product-card" onclick="openModal('Everyday Mini Bag - 10&quot; x 12&quot; x 4&quot;', 'Rs. 109', 'Rs. 89', 'Rs. 64', '✔️ Size: 10&quot; x 12&quot; x 4&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/n8BnkWZV/Yellow-shopping-bag-202604231003.jpg')">
+                <img src="https://i.ibb.co/n8BnkWZV/Yellow-shopping-bag-202604231003.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Everyday Mini Bag<br> 10" x 12" x 4"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 109</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 89</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 64</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Premium Mini Box - 10&quot; x 12&quot; x 5&quot;', 'Rs. 114', 'Rs. 94', 'Rs. 69', '✔️ Size: 10&quot; x 12&quot; x 5&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/SXhpwg3v/Red-shopping-bag-202604231002.jpg')">
+                <img src="https://i.ibb.co/SXhpwg3v/Red-shopping-bag-202604231002.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Premium Mini Box<br> 10" x 12" x 5"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 114</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 94</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 69</div>
+                <div class="view-btn">View Details</div>
+            </div>
+            
+            <div class="product-card" style="border: 2px dashed var(--orange);" onclick="openModal('Customize Your Mini Bag', '', '', '', '✔️ ඔබට අවශ්‍ය පළල (W), උස (H) සහ පතුල (G) ඇතුළත් කර මිල ගණනය කරගන්න.<br>✔️ 80GSM Non-Woven<br>✔️ Eco-Friendly<br>✔️ Free Logo Print<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/cSfrxvvN/Gradient-shopping-bag-202604231037.jpg', true)">
+                <img src="https://i.ibb.co/cSfrxvvN/Gradient-shopping-bag-202604231037.jpg" alt="Custom Bag" class="product-image">
+                <p class="product-title" style="color: var(--orange);">Customize Your<br> Mini Bag</p>
+                <div class="view-btn" style="background: var(--dark-green); margin-top: 15px;">Enter Custom Size</div>
+            </div>        
+        </div>                  
+
+        <div class="category-header">
+            <h2 class="cat-title">2. Market Bags</h2>
+            <p class="cat-subtitle">මාර්කට් / ෂොපිං බෑග් - හාල්, පොල්, සීනී වෙළෙඳ පොළ ද්‍රව්‍ය, ඇඳුම්, සපත්තු, පොත්පත් සඳහා.</p>
+            <span class="size-note-main">පළල x උස x පතුල ලෙස දක්වා ඇත | Width x Height x Gusset</span>
+        </div>
+        
+        <div class="product-grid">
+            
+            <div class="product-card" onclick="openModal('Standard Market Bag - 15&quot; x 13&quot; x 6&quot;', 'Rs. 134', 'Rs. 114', 'Rs. 89', '✔️ Size: 15&quot; x 13&quot; x 6&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg')">
+                <img src="https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Standard Market<br> 15" x 13" x 6"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 134</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 114</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 89</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Large Market Bag - 17&quot; x 15&quot; x 5&quot;', 'Rs. 144', 'Rs. 124', 'Rs. 99', '✔️ Size: 17&quot; x 15&quot; x 5&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/yDPsg9V/Blue-shopping-bag-202604231008.jpg')">
+                <img src="https://i.ibb.co/yDPsg9V/Blue-shopping-bag-202604231008.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Large Market<br> 17" x 15" x 5"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 144</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 124</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 99</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Jumbo Shopping Bag - 17&quot; x 15&quot; x 8&quot;', 'Rs. 159', 'Rs. 139', 'Rs. 114', '✔️ Size: 17&quot; x 15&quot; x 8&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/Xks4Ws0S/Light-green-shopping-202604231012.jpg')">
+                <img src="https://i.ibb.co/Xks4Ws0S/Light-green-shopping-202604231012.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Jumbo Shopping<br> 17" x 15" x 8"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 159</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 139</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 114</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Super Jumbo Bag - 17&quot; x 15&quot; x 10&quot;', 'Rs. 169', 'Rs. 149', 'Rs. 124', '✔️ Size: 17&quot; x 15&quot; x 10&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/G4vHpVhR/Magenta-shopping-bag-202604231014.jpg')">
+                <img src="https://i.ibb.co/G4vHpVhR/Magenta-shopping-bag-202604231014.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Super Jumbo<br> 17" x 15" x 10"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 169</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 149</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 124</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" style="border: 2px dashed var(--orange);" onclick="openModal('Customize Your Market Bag', '', '', '', '✔️ ඔබට අවශ්‍ය පළල (W), උස (H) සහ පතුල (G) ඇතුළත් කර මිල ගණනය කරගන්න.<br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven<br>✔️ Free Logo Print<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/SXVXc5fw/Gradient-non-woven-shopping-202604231035.jpg', true)">
+                <img src="https://i.ibb.co/SXVXc5fw/Gradient-non-woven-shopping-202604231035.jpg" alt="Custom Bag" class="product-image">
+                <p class="product-title" style="color: var(--orange);">Customize Your<br> Market Bag</p>
+                <div class="view-btn" style="background: var(--dark-green); margin-top: 15px;">Enter Custom Size</div>
+            </div>
+        </div>
+
+        <div class="category-header">
+            <h2 class="cat-title">3. Cake Bags</h2>
+            <p class="cat-subtitle">බේකරි සහ හෝම් බේකර්ස්ලා සඳහා විශේෂිත පළල් පතුලක් සහිතයි</p>
+            <span class="size-note-main">පළල x උස x පතුල ලෙස දක්වා ඇත | Width x Height x Gusset</span>
+        </div>
+        
+        <div class="product-grid">
+                
+            <div class="product-card" onclick="openModal('Cake Box Bag - 10&quot; x 7&quot; x 10&quot;', 'Rs. 119', 'Rs. 99', 'Rs. 74', '✔️ Size: 10&quot; x 7&quot; x 10&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/xKng0ZjN/Yellow-shopping-bag-202604231040.jpg')">
+                <img src="https://i.ibb.co/xKng0ZjN/Yellow-shopping-bag-202604231040.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Cake Box Bag<br> 10" x 7" x 10"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 119</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 99</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 74</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Cake Box Bag - 11&quot; x 7&quot; x 11&quot;', 'Rs. 124', 'Rs. 104', 'Rs. 79', '✔️ Size: 11&quot; x 7&quot; x 11&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/mV3xXT3r/White-shopping-bag-202604231018.jpg')">
+                <img src="https://i.ibb.co/mV3xXT3r/White-shopping-bag-202604231018.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Cake Box Bag<br> 11" x 7" x 11"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 124</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 104</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 79</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Square Cake Bag - 10&quot; x 10&quot; x 10&quot;', 'Rs. 129', 'Rs. 109', 'Rs. 84', '✔️ Size: 10&quot; x 10&quot; x 10&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg')">
+                <img src="https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Square Cake Bag<br> 10" x 10" x 10"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 129</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 109</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 84</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Large Cake Bag - 13&quot; x 7&quot; x 13&quot;', 'Rs. 139', 'Rs. 119', 'Rs. 94', '✔️ Size: 13&quot; x 7&quot; x 13&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg')">
+                <img src="https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Large Cake Bag<br> 13" x 7" x 13"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 139</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 119</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 94</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Square Cake Bag - 13&quot; x 13&quot; x 13&quot;', 'Rs. 164', 'Rs. 144', 'Rs. 119', '✔️ Size: 13&quot; x 13&quot; x 13&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/7xMJWmCq/Yellow-shopping-bag-202604231031.jpg')">
+                <img src="https://i.ibb.co/7xMJWmCq/Yellow-shopping-bag-202604231031.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Square Cake Bag<br> 13" x 13" x 13"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 164</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 144</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 119</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Giant Cake Bag - 15&quot; x 12&quot; x 15&quot;', 'Rs. 179', 'Rs. 159', 'Rs. 134', 'විශාල කේක් සඳහා විශේෂයි.<br><br>✔️ Size: 15&quot; x 12&quot; x 15&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg')">
+                <img src="https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Giant Cake Bag<br> 15" x 12" x 15"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 179</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 159</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 134</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" style="border: 2px dashed var(--orange);" onclick="openModal('Customize Your Cake Bag', '', '', '', '✔️ ඔබට අවශ්‍ය පළල (W), උස (H) සහ පතුල (G) ඇතුළත් කර මිල ගණනය කරගන්න.<br>✔️ 80GSM Non-Woven<br>✔️ Free Logo Print<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/FL9DhnyR/Gradient-shopping-bag-202604231033.jpg', true)">
+                <img src="https://i.ibb.co/FL9DhnyR/Gradient-shopping-bag-202604231033.jpg" alt="Custom Bag" class="product-image">
+                <p class="product-title" style="color: var(--orange);">Customize Your<br> Cake Bag</p>
+                <div class="view-btn" style="background: var(--dark-green); margin-top: 15px;">Enter Custom Size</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImg" src="" style="width:100px; height:100px; object-fit:cover; border-radius: 8px; margin-bottom:5px; border: 1px solid #ddd; cursor: pointer;" onclick="openZoomLightbox(this.src)" title="Click to View Full Image">
+            <h2 id="modalTitle" style="margin:0; font-size: 16px; color: var(--dark-green); line-height: 1.2;"></h2>
+            
+            <div id="customSizeInputs" class="custom-inputs-box">
+                <p>ඔබේ සයිස් එක ඇතුළත් කරන්න (Inches):</p>
+                <div class="custom-input-row">
+                    <input type="number" id="customW" placeholder="පළල (W)" oninput="calculateCustomPrice()">
+                    <input type="number" id="customH" placeholder="උස (H)" oninput="calculateCustomPrice()">
+                    <input type="number" id="customG" placeholder="පතුල (G)" oninput="calculateCustomPrice()">
+                </div>
+            </div>
+
+            <div class="price-row-top" style="margin-top: 8px;" id="modalPriceHeader">
+                <span id="modalOldPrice" class="old-price" style="font-size: 13px;"></span>
+                <span class="free-print-badge" style="font-size: 11px; padding: 2px 6px;">FREE PRINT</span>
+            </div>
+            
+            <div id="modalRetailPrice" style="color: var(--dark-green); font-weight: bold; margin: 3px 0; font-size: 14px;"></div>
+
+            <div style="background: #fff3e0; padding: 8px; border-radius: 5px; margin-top: 5px;">
+                <span style="font-size: 11px; color: var(--text-grey);">Wholesale Price (Per Bag)</span><br>
+                <span id="modalWholesalePrice" class="new-price" style="font-size: 20px;"></span>
+            </div>
+
+            <div class="color-selection">
+                <p>වර්ණය තෝරන්න: <span id="colorNameDisplay" style="color: var(--orange);">සුදු (White)</span></p>
+                <div class="color-palette">
+                    <div class="color-circle c-white selected" onclick="selectColor('සුදු (White)', this)" title="සුදු"></div>
+                    <div class="color-circle c-black" onclick="selectColor('කළු (Black)', this)" title="කළු"></div>
+                    <div class="color-circle c-darkblue" onclick="selectColor('තද නිල් (Dark Blue)', this)" title="තද නිල්"></div>
+                    <div class="color-circle c-lightgreen" onclick="selectColor('ලා කොළ (Light Green)', this)" title="ලා කොළ"></div>
+                    <div class="color-circle c-yellow" onclick="selectColor('කහ (Yellow)', this)" title="කහ"></div>
+                    <div class="color-circle c-other" onclick="selectColor('වෙනත් (Other)', this)" title="වෙනත්"></div>
+                </div>
+            </div>
+
+            <div class="qty-container">
+                <span style="font-size: 14px; font-weight: bold; color: var(--dark-grey);">Quantity:</span>
+                <button class="qty-btn" onclick="changeQty(-10)">−</button>
+                <input type="number" id="itemQty" class="qty-input" value="100" min="10" oninput="updateTotal()">
+                <button class="qty-btn" onclick="changeQty(10)">+</button>
+            </div>
+
+            <div id="totalPriceDisplay" class="total-price-box">Total: Rs. 0</div>
+            
+            <div id="modalDesc" class="modal-desc"></div>
+            <a id="modalBuyBtn" href="" target="_blank" class="whatsapp-btn">🛒 Order via WhatsApp</a>
+        </div>
+    </div>
+
+    <div id="zoomLightbox" onclick="closeZoomLightbox()">
+        <span class="close-zoom">&times;</span>
+        <img id="zoomedImg" src="">
+    </div>
+
+    <div class="footer">
+        <p><strong>ONE FACE Deals</strong></p>
+        <p>📬No.769,Colombo Main Road,Hatton,Sri Lanka</p>
+        <p>Contact: 077 089 5001</p>
+        <p>Island Wide Delivery Available 🇱🇰</p>
+        <br>
+        <p style="font-size: 12px; color: var(--grey);">©2017-2026 ONE FACE Deals. All Rights Reserved.</p>
+    </div>
+</div>
+
+<script>
+    let currentItemPrice = 0;
+    let currentItemName = "";
+    let currentColor = "සුදු (White)"; 
+    let isCustomBagMode = false;
+    let baseCustomTitle = "";
+
+    function getPsychologicalPrice(val) {
+        let rounded = Math.round(val);
+        let rem = rounded % 10;
+        if (rem <= 1) return rounded - rem - 1; 
+        if (rem <= 6) return rounded - rem + 4; 
+        return rounded - rem + 9; 
+    }
+
+    function openModal(title, oldPrice, retailPrice, wholesalePrice, desc, imgSrc, isCustom = false) {
+        document.getElementById('modalTitle').innerHTML = title;
+        document.getElementById('modalDesc').innerHTML = desc;
+        document.getElementById('modalImg').src = imgSrc;
+        
+        isCustomBagMode = isCustom;
+        baseCustomTitle = title.replace(/<[^>]*>?/gm, ' ');
+
+        if (isCustom) {
+            document.getElementById('customSizeInputs').style.display = "block";
+            document.getElementById('modalOldPrice').innerText = "";
+            document.getElementById('modalRetailPrice').innerText = "";
+            document.getElementById('modalWholesalePrice').innerText = "Rs. 0";
+            document.getElementById('customW').value = '';
+            document.getElementById('customH').value = '';
+            document.getElementById('customG').value = '';
+            currentItemPrice = 0;
+            currentItemName = baseCustomTitle + " (Size not set)";
+        } else {
+            document.getElementById('customSizeInputs').style.display = "none";
+            document.getElementById('modalOldPrice').innerText = oldPrice;
+            document.getElementById('modalRetailPrice').innerText = retailPrice;
+            document.getElementById('modalWholesalePrice').innerText = wholesalePrice;
+            
+            currentItemPrice = parseInt(wholesalePrice.replace(/[^0-9]/g, ''));
+            currentItemName = title.replace(/<[^>]*>?/gm, ' '); 
+        }
+
+        document.getElementById('itemQty').value = 100; 
+        
+        let colors = document.getElementsByClassName('color-circle');
+        for(let c of colors) c.classList.remove('selected');
+        colors[0].classList.add('selected'); 
+        currentColor = "සුදු (White)";
+        document.getElementById('colorNameDisplay').innerText = currentColor;
+
+        updateTotal(); 
+        
+        document.getElementById('productModal').style.display = "block";
+    }
+
+    function calculateCustomPrice() {
+        if (!isCustomBagMode) return;
+        
+        let w = parseFloat(document.getElementById('customW').value) || 0;
+        let h = parseFloat(document.getElementById('customH').value) || 0;
+        let g = parseFloat(document.getElementById('customG').value) || 0;
+
+        if (w > 0 && h > 0 && g >= 0) {
+            let area = (w + g + 1) * (h * 2 + g + 2);
+            let rawPrice = area * 0.085 + 25; 
+            
+            currentItemPrice = getPsychologicalPrice(rawPrice);
+            
+            let retailPrice = currentItemPrice + 25;
+            let oldPrice = retailPrice + 20;
+            
+            document.getElementById('modalWholesalePrice').innerText = "Rs. " + currentItemPrice;
+            document.getElementById('modalOldPrice').innerText = "Rs. " + oldPrice;
+            document.getElementById('modalRetailPrice').innerText = "Retail: Rs. " + retailPrice;
+            
+            currentItemName = baseCustomTitle + ` (${w}" x ${h}" x ${g}")`;
+        } else {
+            currentItemPrice = 0;
+            document.getElementById('modalWholesalePrice').innerText = "Rs. 0";
+            document.getElementById('modalOldPrice').innerText = "";
+            document.getElementById('modalRetailPrice').innerText = "";
+            currentItemName = baseCustomTitle + " (Size not set)";
+        }
+        updateTotal();
+    }
+
+    function selectColor(color, element) {
+        currentColor = color;
+        document.getElementById('colorNameDisplay').innerText = color;
+        
+        let colors = document.getElementsByClassName('color-circle');
+        for(let c of colors) {
+            c.classList.remove('selected');
+        }
+        element.classList.add('selected');
+        
+        updateTotal(); 
+    }
+
+    function changeQty(amount) {
+        let qtyInput = document.getElementById('itemQty');
+        let currentVal = parseInt(qtyInput.value) || 0;
+        let newVal = currentVal + amount;
+        if(newVal < 10) newVal = 10; 
+        qtyInput.value = newVal;
+        updateTotal();
+    }
+
+    function updateTotal() {
+        let qty = parseInt(document.getElementById('itemQty').value) || 100;
+        let subTotal = currentItemPrice * qty;
+        let discountAmount = 0;
+        let discountPerItem = 0;
+
+        if (qty >= 200 && currentItemPrice > 0) {
+            discountPerItem = (currentItemPrice >= 100) ? 10 : 5; 
+            discountAmount = discountPerItem * qty;
+        }
+
+        let finalTotal = subTotal - discountAmount;
+
+        let formattedSubTotal = subTotal.toLocaleString('en-IN');
+        let formattedDiscount = discountAmount.toLocaleString('en-IN');
+        let formattedFinal = finalTotal.toLocaleString('en-IN');
+
+        let totalBox = document.getElementById('totalPriceDisplay');
+
+        if (discountAmount > 0) {
+            totalBox.innerHTML = `
+                <span style="font-size:13px; color:#555;">Subtotal: Rs. ${formattedSubTotal}</span><br>
+                <span style="color:#2e7d32; font-size:14px; font-weight:bold;">🎉 Extra Discount: - Rs. ${formattedDiscount}</span><br>
+                <span style="font-size:18px; color:#d32f2f;">Final Total: Rs. ${formattedFinal}</span>
+            `;
+        } else {
+            totalBox.innerHTML = `Total Amount: Rs. ${formattedSubTotal}`;
+        }
+
+        let phone = "94770895001"; 
+        
+        let message = `Hello ONE FACE Deals, I would like to place an order:\n\n🛍️ Item: ${currentItemName}\n🎨 Color: ${currentColor}\n📦 Quantity: ${qty} pcs\n`;
+        
+        if (discountAmount > 0) {
+            message += `\n💵 Subtotal: Rs. ${formattedSubTotal}\n🎁 Discount (200+ bags): - Rs. ${formattedDiscount}\n💰 Final Total: Rs. ${formattedFinal}`;
+        } else {
+            message += `\n💰 Total Amount: Rs. ${formattedSubTotal}`;
+        }
+        message += `\n\nPlease confirm my order.`;
+        
+        let waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        document.getElementById('modalBuyBtn').href = waLink;
+    }
+
+    function closeModal() {
+        document.getElementById('productModal').style.display = "none";
+    }
+
+    function openZoomLightbox(src) {
+        document.getElementById('zoomedImg').src = src;
+        document.getElementById('zoomLightbox').style.display = "block";
+    }
+
+    function closeZoomLightbox() {
+        document.getElementById('zoomLightbox').style.display = "none";
+    }
+
+    window.addEventListener('scroll', function() {
+        const scrollImage = document.getElementById('vfxScrollImage');
+        if(scrollImage) {
+            let scrollOffset = window.scrollY;
+            let maxScroll = 300; 
+            let opacity = 1 - (scrollOffset / maxScroll);
+            let translateY = scrollOffset * 0.5; 
+            if (opacity < 0) opacity = 0;
+            scrollImage.style.opacity = opacity;
+            scrollImage.style.transform = `translateY(${translateY}px)`;
+        }
+    });
+
+    window.onclick = function(event) {
+        let modal = document.getElementById('productModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // 🟢 Splash Screen Logic (වීඩියෝ එක ඉවර වුණාම සයිට් එක පෙන්නන කෑල්ල) 🟢
+    document.addEventListener("DOMContentLoaded", function() {
+        var splashScreen = document.getElementById('splash-screen');
+        var splashVideo = document.getElementById('splash-video');
+
+        if(splashVideo) {
+            // වීඩියෝ එක ප්ලේ වෙලා ඉවර වුණ ගමන් splash screen එක අයින් කරන්න
+            splashVideo.onended = function() {
+                splashScreen.classList.add('hide-splash');
+            };
+
+            // බැරිවෙලාවත් කෙනෙක්ගේ ෆෝන් එකේ වීඩියෝ එක ප්ලේ වුණේ නැත්නම්, තත්පර 5කින් ඔටෝම අයින් වෙන්න
+            setTimeout(function() {
+                splashScreen.classList.add('hide-splash');
+            }, 5000);
+        }
+    });
+</script>
+
+</body>
+</html>
