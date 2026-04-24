@@ -135,6 +135,40 @@
         #zoomLightbox { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); text-align: center; }
         #zoomedImg { max-width: 95%; max-height: 80vh; margin-top: 15vh; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); }
         .close-zoom { position: absolute; right: 25px; top: 20px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
+    
+            /* 🟢 Customer Reviews Scrolling Styles 🟢 */
+        .reviews-section { margin: 40px 0; overflow: hidden; padding: 25px 0; background-color: var(--grey); border-top: 2px dashed var(--orange); border-bottom: 2px dashed var(--orange); }
+        .reviews-title { text-align: center; color: var(--dark-green); font-size: 20px; margin: 0 0 20px 0; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;}
+        .reviews-container { display: flex; width: max-content; animation: scrollReviews 35s linear infinite; gap: 15px; padding-left: 15px; }
+        .reviews-container:hover { animation-play-state: paused; } /* කස්ටමර්ට කියවන්න ඕන වුණාම touch කරන් හිටියම නවතිනවා */
+        .review-card { background: var(--white); padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); width: 260px; flex-shrink: 0; border-left: 4px solid #FFD700; display: flex; flex-direction: column; justify-content: space-between;}
+        .stars { color: #FFD700; font-size: 16px; margin-bottom: 8px; }
+        .feedback { font-size: 13px; color: var(--text-grey); line-height: 1.4; font-style: italic; }
+        .customer-name { font-size: 12px; font-weight: bold; color: var(--dark-green); margin-top: 10px; text-align: right; }
+
+        @keyframes scrollReviews {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+                .review-card { 
+            background: var(--white); 
+            padding: 15px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08); 
+            width: 260px; 
+            flex-shrink: 0; 
+            border-left: 4px solid #FFD700; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+            
+            /* 🟢 අකුරු Copy වෙන එක සහ Menu එක එන එක නවත්වන කෝඩ් එක 🟢 */
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none; 
+            -webkit-touch-callout: none; /* ෆෝන් වල Copy/Share මෙනු එක එන එක නවත්වයි */
+        }
     </style>
 </head>
 <body>
@@ -405,6 +439,116 @@
         <span class="close-zoom">&times;</span>
         <img id="zoomedImg" src="">
     </div>
+
+    <div class="reviews-section">
+        <h2 class="reviews-title">⭐⭐⭐⭐⭐ Customer Reviews</h2>
+        <div class="reviews-container">
+            
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Oyalage service eka godak hodai full satisfied ❤️"</div>
+                <div class="customer-name">- Dissanayaka Stores -Kandemulla</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Best wholesale prices. Good quality bags and very clear logo printing. Highly recommended!"</div>
+                <div class="customer-name">- Ravi Stores - Hatton</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"ඔයාලගෙ service එක ගොඩක් හොඳයි❤️.පතුල පළල් නිසා කේක් පෙට්ටි දාන්න ලේසියි. නියම සයිස් ටික."</div>
+                <div class="customer-name">- The Bake House</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Quality is 100%.Advance payment එක කරේ බයෙන් මොකද කලින් තැනකට දාලා සල්ලිත් නෑ බඩුත් නෑ. හැබැයි ඔයාලා විශ්වාසේ තියලා ලස්සනට වැඩේ කරා.❤️ විශ්වාසවන්ත තැනක්. One Face Deals"</div>
+                <div class="customer-name">- Nuwan Danuddara- Kandy</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Very happy with the mini bags. Perfect sizes for our pharmacy items."</div>
+                <div class="customer-name">- The First Pharmacy- Polonnaruwa</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"මාර්කට් බෑග් ටික හිතුවටත් වඩා හයියයි 😍 බර දේවල් දාන්න නියමයි. Thanks ONE FACE Deals."</div>
+                <div class="customer-name">- Kasun -Kuliyapitiya</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Perfect custom sizes for our gift shop. Fast delivery and friendly service. Will order again."</div>
+                <div class="customer-name">- Gift Corner</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"ලෝගෝ එක ලස්සනටම Gold පාටින් ප්‍රින්ට් කරලා දීලා තියෙනවා. බිස්නස් එකට ලොකු වටිනාකමක්."</div>
+                <div class="customer-name">- Supun - Anuradapura</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"බෑග් 200ට වඩා ගත්තම ලැබුණු ඩිස්කවුන්ට් එකත් එක්ක ලොකු ලාභයක්. අනිවාර්යයෙන්ම දිගටම ඕඩර් දෙනවා."</div>
+                <div class="customer-name">- Janith Stores-Badulla</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Excellent service! Even though there's no COD, they updated me with photos before shipping."</div>
+                <div class="customer-name">- Nimali - -Colombo</div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"ප්‍රින්ට් එක මාරම ලස්සනට ඇවිත් තියෙනවා. ගාණත් අඩුයි. ගොඩක් ස්තූතියි!"</div>
+                <div class="customer-name">- Tambapanni Stores</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Best wholesale prices. Good quality bags and very clear logo printing. Highly recommended! ❤️"</div>
+                <div class="customer-name">- Dinesh Stores</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Good Service. And Super qulity product ❤️."</div>
+                <div class="customer-name">- Bake House - Mawathagama</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Quality is 100%."</div>
+                <div class="customer-name">- Chamara, Kandy</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Very happy with the mini bags. Perfect sizes for our pharmacy items."</div>
+                <div class="customer-name">- Lanka Pharmacy - Kilinocchi</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Thanks ONE FACE Deals. මන් හිතුවට වඩා නියමයි"</div>
+                <div class="customer-name">- Manoj Pharmacy </div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Perfect custom sizes for our gift shop. Fast delivery and friendly service. Will order again."</div>
+                <div class="customer-name">- Gift Corner</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"Gold Color Print එක පට්ට මචං Thank you.... 😍❤️"</div>
+                <div class="customer-name">- Sakiya pharmacy </div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"බෑග් 1000ක් ලස්සනට පැක් කරලා පිළිවෙළට එවලා තියනවා. සුපිරි මචං ආදරෙ ඉලග පාරත් ගන්නවා..💝"</div>
+                <div class="customer-name">- Lavinya Clothes </div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="feedback">"COD නෑ කිව්වම අවුල් ගියා එත් මේ වගේ සුපිරියට වැඩෙ කරද්දි COD නැති එක හොඳයි Brother මොකද වැඩෙ සුපිරි.. 👌  "</div>
+                <div class="customer-name">- Gift Center - JA-Ela</div>
+            </div>
+
+        </div>
+    </div>
+
 
     <div class="footer">
         <p><strong>ONE FACE Deals</strong></p>
