@@ -41,8 +41,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000000; /* වීඩියෝ එකේ පසුබිම් වර්ණය */
-            z-index: 999999; /* හැමදේටම උඩින් පේන්න */
+            background-color: #000000;
+            z-index: 999999;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -51,7 +51,7 @@
         #splash-video {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ෆෝන් එකේ ස්ක්‍රීන් එක පිරෙන්න */
+            object-fit: cover;
         }
         .hide-splash {
             opacity: 0 !important;
@@ -136,21 +136,12 @@
         #zoomedImg { max-width: 95%; max-height: 80vh; margin-top: 15vh; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); }
         .close-zoom { position: absolute; right: 25px; top: 20px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
     
-            /* 🟢 Customer Reviews Scrolling Styles 🟢 */
+        /* 🟢 Customer Reviews Scrolling Styles 🟢 */
         .reviews-section { margin: 40px 0; overflow: hidden; padding: 25px 0; background-color: var(--grey); border-top: 2px dashed var(--orange); border-bottom: 2px dashed var(--orange); }
         .reviews-title { text-align: center; color: var(--dark-green); font-size: 20px; margin: 0 0 20px 0; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;}
         .reviews-container { display: flex; width: max-content; animation: scrollReviews 35s linear infinite; gap: 15px; padding-left: 15px; }
-        .reviews-container:hover { animation-play-state: paused; } /* කස්ටමර්ට කියවන්න ඕන වුණාම touch කරන් හිටියම නවතිනවා */
-        .review-card { background: var(--white); padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); width: 260px; flex-shrink: 0; border-left: 4px solid #FFD700; display: flex; flex-direction: column; justify-content: space-between;}
-        .stars { color: #FFD700; font-size: 16px; margin-bottom: 8px; }
-        .feedback { font-size: 13px; color: var(--text-grey); line-height: 1.4; font-style: italic; }
-        .customer-name { font-size: 12px; font-weight: bold; color: var(--dark-green); margin-top: 10px; text-align: right; }
-
-        @keyframes scrollReviews {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
-        }
-                .review-card { 
+        .reviews-container:hover { animation-play-state: paused; }
+        .review-card { 
             background: var(--white); 
             padding: 15px; 
             border-radius: 8px; 
@@ -162,12 +153,20 @@
             flex-direction: column; 
             justify-content: space-between;
             
-            /* 🟢 අකුරු Copy වෙන එක සහ Menu එක එන එක නවත්වන කෝඩ් එක 🟢 */
+            /* Copy වෙන එක සහ Menu එක එන එක නවත්වන කෝඩ් එක */
             -webkit-user-select: none; 
             -moz-user-select: none; 
             -ms-user-select: none; 
             user-select: none; 
-            -webkit-touch-callout: none; /* ෆෝන් වල Copy/Share මෙනු එක එන එක නවත්වයි */
+            -webkit-touch-callout: none; 
+        }
+        .stars { color: #FFD700; font-size: 16px; margin-bottom: 8px; }
+        .feedback { font-size: 13px; color: var(--text-grey); line-height: 1.4; font-style: italic; }
+        .customer-name { font-size: 12px; font-weight: bold; color: var(--dark-green); margin-top: 10px; text-align: right; }
+
+        @keyframes scrollReviews {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
         }
     </style>
 </head>
@@ -202,7 +201,6 @@
         </div>
         
         <div class="product-grid">
-            
             <div class="product-card" onclick="openModal('Compact Gift Bag - 6&quot; x 8&quot; x 3&quot;', 'Rs. 89', 'Rs. 69', 'Rs. 44', '✔️ Size: 6&quot; x 8&quot; x 3&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/jP1yHPP5/White-shopping-bag-202604230959.jpg')">
                 <img src="https://i.ibb.co/jP1yHPP5/White-shopping-bag-202604230959.jpg" alt="Bag" class="product-image">
                 <p class="product-title">Compact Gift Bag<br> 6" x 8" x 3"</p>
@@ -257,10 +255,19 @@
         </div>
         
         <div class="product-grid">
-            
-            <div class="product-card" onclick="openModal('Standard Market Bag - 15&quot; x 13&quot; x 6&quot;', 'Rs. 134', 'Rs. 114', 'Rs. 89', '✔️ Size: 15&quot; x 13&quot; x 6&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg')">
+            <div class="product-card" onclick="openModal('Standard Market Bag - 15&quot; x 13&quot; x 6&quot;', 'Rs. 124', 'Rs. 104', 'Rs. 79', '✔️ Size: 15&quot; x 13&quot; x 6&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg')">
                 <img src="https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg" alt="Bag" class="product-image">
                 <p class="product-title">Standard Market<br> 15" x 13" x 6"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 124</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 104</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 79</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Large Market Bag - 17&quot; x 15&quot; x 5&quot;', 'Rs. 134', 'Rs. 114', 'Rs. 89', '✔️ Size: 17&quot; x 15&quot; x 5&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/yDPsg9V/Blue-shopping-bag-202604231008.jpg')">
+                <img src="https://i.ibb.co/yDPsg9V/Blue-shopping-bag-202604231008.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Large Market<br> 17" x 15" x 5"</p>
                 <div class="price-row-top"><span class="old-price">Rs. 134</span><span class="free-print-badge">FREE PRINT</span></div>
                 <div class="selling-price">Retail: Rs. 114</div>
                 <span class="wholesale-label">Wholesale Price</span>
@@ -268,33 +275,23 @@
                 <div class="view-btn">View Details</div>
             </div>
 
-            <div class="product-card" onclick="openModal('Large Market Bag - 17&quot; x 15&quot; x 5&quot;', 'Rs. 144', 'Rs. 124', 'Rs. 99', '✔️ Size: 17&quot; x 15&quot; x 5&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/yDPsg9V/Blue-shopping-bag-202604231008.jpg')">
-                <img src="https://i.ibb.co/yDPsg9V/Blue-shopping-bag-202604231008.jpg" alt="Bag" class="product-image">
-                <p class="product-title">Large Market<br> 17" x 15" x 5"</p>
-                <div class="price-row-top"><span class="old-price">Rs. 144</span><span class="free-print-badge">FREE PRINT</span></div>
-                <div class="selling-price">Retail: Rs. 124</div>
+            <div class="product-card" onclick="openModal('Jumbo Shopping Bag - 17&quot; x 15&quot; x 8&quot;', 'Rs. 149', 'Rs. 129', 'Rs. 104', '✔️ Size: 17&quot; x 15&quot; x 8&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/Xks4Ws0S/Light-green-shopping-202604231012.jpg')">
+                <img src="https://i.ibb.co/Xks4Ws0S/Light-green-shopping-202604231012.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Jumbo Shopping<br> 17" x 15" x 8"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 149</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 129</div>
                 <span class="wholesale-label">Wholesale Price</span>
-                <div class="new-price">Rs. 99</div>
+                <div class="new-price">Rs. 104</div>
                 <div class="view-btn">View Details</div>
             </div>
 
-            <div class="product-card" onclick="openModal('Jumbo Shopping Bag - 17&quot; x 15&quot; x 8&quot;', 'Rs. 159', 'Rs. 139', 'Rs. 114', '✔️ Size: 17&quot; x 15&quot; x 8&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/Xks4Ws0S/Light-green-shopping-202604231012.jpg')">
-                <img src="https://i.ibb.co/Xks4Ws0S/Light-green-shopping-202604231012.jpg" alt="Bag" class="product-image">
-                <p class="product-title">Jumbo Shopping<br> 17" x 15" x 8"</p>
+            <div class="product-card" onclick="openModal('Super Jumbo Bag - 17&quot; x 15&quot; x 10&quot;', 'Rs. 159', 'Rs. 139', 'Rs. 114', '✔️ Size: 17&quot; x 15&quot; x 10&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/G4vHpVhR/Magenta-shopping-bag-202604231014.jpg')">
+                <img src="https://i.ibb.co/G4vHpVhR/Magenta-shopping-bag-202604231014.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Super Jumbo<br> 17" x 15" x 10"</p>
                 <div class="price-row-top"><span class="old-price">Rs. 159</span><span class="free-print-badge">FREE PRINT</span></div>
                 <div class="selling-price">Retail: Rs. 139</div>
                 <span class="wholesale-label">Wholesale Price</span>
                 <div class="new-price">Rs. 114</div>
-                <div class="view-btn">View Details</div>
-            </div>
-
-            <div class="product-card" onclick="openModal('Super Jumbo Bag - 17&quot; x 15&quot; x 10&quot;', 'Rs. 169', 'Rs. 149', 'Rs. 124', '✔️ Size: 17&quot; x 15&quot; x 10&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ Heavy Duty<br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/G4vHpVhR/Magenta-shopping-bag-202604231014.jpg')">
-                <img src="https://i.ibb.co/G4vHpVhR/Magenta-shopping-bag-202604231014.jpg" alt="Bag" class="product-image">
-                <p class="product-title">Super Jumbo<br> 17" x 15" x 10"</p>
-                <div class="price-row-top"><span class="old-price">Rs. 169</span><span class="free-print-badge">FREE PRINT</span></div>
-                <div class="selling-price">Retail: Rs. 149</div>
-                <span class="wholesale-label">Wholesale Price</span>
-                <div class="new-price">Rs. 124</div>
                 <div class="view-btn">View Details</div>
             </div>
 
@@ -312,10 +309,29 @@
         </div>
         
         <div class="product-grid">
-                
-            <div class="product-card" onclick="openModal('Cake Box Bag - 10&quot; x 7&quot; x 10&quot;', 'Rs. 119', 'Rs. 99', 'Rs. 74', '✔️ Size: 10&quot; x 7&quot; x 10&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/xKng0ZjN/Yellow-shopping-bag-202604231040.jpg')">
+            <div class="product-card" onclick="openModal('Cake Box Bag - 10&quot; x 7&quot; x 10&quot;', 'Rs. 109', 'Rs. 89', 'Rs. 64', '✔️ Size: 10&quot; x 7&quot; x 10&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/xKng0ZjN/Yellow-shopping-bag-202604231040.jpg')">
                 <img src="https://i.ibb.co/xKng0ZjN/Yellow-shopping-bag-202604231040.jpg" alt="Bag" class="product-image">
                 <p class="product-title">Cake Box Bag<br> 10" x 7" x 10"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 109</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 89</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 64</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Cake Box Bag - 11&quot; x 7&quot; x 11&quot;', 'Rs. 114', 'Rs. 94', 'Rs. 69', '✔️ Size: 11&quot; x 7&quot; x 11&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/mV3xXT3r/White-shopping-bag-202604231018.jpg')">
+                <img src="https://i.ibb.co/mV3xXT3r/White-shopping-bag-202604231018.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Cake Box Bag<br> 11" x 7" x 11"</p>
+                <div class="price-row-top"><span class="old-price">Rs. 114</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 94</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 69</div>
+                <div class="view-btn">View Details</div>
+            </div>
+
+            <div class="product-card" onclick="openModal('Square Cake Bag - 10&quot; x 10&quot; x 10&quot;', 'Rs. 119', 'Rs. 99', 'Rs. 74', '✔️ Size: 10&quot; x 10&quot; x 10&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg')">
+                <img src="https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Square Cake Bag<br> 10" x 10" x 10"</p>
                 <div class="price-row-top"><span class="old-price">Rs. 119</span><span class="free-print-badge">FREE PRINT</span></div>
                 <div class="selling-price">Retail: Rs. 99</div>
                 <span class="wholesale-label">Wholesale Price</span>
@@ -323,19 +339,9 @@
                 <div class="view-btn">View Details</div>
             </div>
 
-            <div class="product-card" onclick="openModal('Cake Box Bag - 11&quot; x 7&quot; x 11&quot;', 'Rs. 124', 'Rs. 104', 'Rs. 79', '✔️ Size: 11&quot; x 7&quot; x 11&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/mV3xXT3r/White-shopping-bag-202604231018.jpg')">
-                <img src="https://i.ibb.co/mV3xXT3r/White-shopping-bag-202604231018.jpg" alt="Bag" class="product-image">
-                <p class="product-title">Cake Box Bag<br> 11" x 7" x 11"</p>
-                <div class="price-row-top"><span class="old-price">Rs. 124</span><span class="free-print-badge">FREE PRINT</span></div>
-                <div class="selling-price">Retail: Rs. 104</div>
-                <span class="wholesale-label">Wholesale Price</span>
-                <div class="new-price">Rs. 79</div>
-                <div class="view-btn">View Details</div>
-            </div>
-
-            <div class="product-card" onclick="openModal('Square Cake Bag - 10&quot; x 10&quot; x 10&quot;', 'Rs. 129', 'Rs. 109', 'Rs. 84', '✔️ Size: 10&quot; x 10&quot; x 10&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg')">
-                <img src="https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg" alt="Bag" class="product-image">
-                <p class="product-title">Square Cake Bag<br> 10" x 10" x 10"</p>
+            <div class="product-card" onclick="openModal('Large Cake Bag - 13&quot; x 7&quot; x 13&quot;', 'Rs. 129', 'Rs. 109', 'Rs. 84', '✔️ Size: 13&quot; x 7&quot; x 13&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg')">
+                <img src="https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg" alt="Bag" class="product-image">
+                <p class="product-title">Large Cake Bag<br> 13" x 7" x 13"</p>
                 <div class="price-row-top"><span class="old-price">Rs. 129</span><span class="free-print-badge">FREE PRINT</span></div>
                 <div class="selling-price">Retail: Rs. 109</div>
                 <span class="wholesale-label">Wholesale Price</span>
@@ -343,33 +349,23 @@
                 <div class="view-btn">View Details</div>
             </div>
 
-            <div class="product-card" onclick="openModal('Large Cake Bag - 13&quot; x 7&quot; x 13&quot;', 'Rs. 139', 'Rs. 119', 'Rs. 94', '✔️ Size: 13&quot; x 7&quot; x 13&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg')">
-                <img src="https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg" alt="Bag" class="product-image">
-                <p class="product-title">Large Cake Bag<br> 13" x 7" x 13"</p>
-                <div class="price-row-top"><span class="old-price">Rs. 139</span><span class="free-print-badge">FREE PRINT</span></div>
-                <div class="selling-price">Retail: Rs. 119</div>
-                <span class="wholesale-label">Wholesale Price</span>
-                <div class="new-price">Rs. 94</div>
-                <div class="view-btn">View Details</div>
-            </div>
-
-            <div class="product-card" onclick="openModal('Square Cake Bag - 13&quot; x 13&quot; x 13&quot;', 'Rs. 164', 'Rs. 144', 'Rs. 119', '✔️ Size: 13&quot; x 13&quot; x 13&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/7xMJWmCq/Yellow-shopping-bag-202604231031.jpg')">
+            <div class="product-card" onclick="openModal('Square Cake Bag - 13&quot; x 13&quot; x 13&quot;', 'Rs. 154', 'Rs. 134', 'Rs. 109', '✔️ Size: 13&quot; x 13&quot; x 13&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/7xMJWmCq/Yellow-shopping-bag-202604231031.jpg')">
                 <img src="https://i.ibb.co/7xMJWmCq/Yellow-shopping-bag-202604231031.jpg" alt="Bag" class="product-image">
                 <p class="product-title">Square Cake Bag<br> 13" x 13" x 13"</p>
-                <div class="price-row-top"><span class="old-price">Rs. 164</span><span class="free-print-badge">FREE PRINT</span></div>
-                <div class="selling-price">Retail: Rs. 144</div>
+                <div class="price-row-top"><span class="old-price">Rs. 154</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 134</div>
                 <span class="wholesale-label">Wholesale Price</span>
-                <div class="new-price">Rs. 119</div>
+                <div class="new-price">Rs. 109</div>
                 <div class="view-btn">View Details</div>
             </div>
 
-            <div class="product-card" onclick="openModal('Giant Cake Bag - 15&quot; x 12&quot; x 15&quot;', 'Rs. 179', 'Rs. 159', 'Rs. 134', 'විශාල කේක් සඳහා විශේෂයි.<br><br>✔️ Size: 15&quot; x 12&quot; x 15&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg')">
+            <div class="product-card" onclick="openModal('Giant Cake Bag - 15&quot; x 12&quot; x 15&quot;', 'Rs. 169', 'Rs. 149', 'Rs. 124', 'විශාල කේක් සඳහා විශේෂයි.<br><br>✔️ Size: 15&quot; x 12&quot; x 15&quot; <br><span class=&quot;modal-size-note&quot;>පළල x උස x පතුල (W x H x Gusset)</span><br>✔️ 80GSM Non-Woven Fabric<br>✔️ Eco-Friendly<br>✔️ Custom Design Free<br>✔️ Inside Price Tag: +Rs. 3/bag<br>✔️ <b>බෑග් 200 ට වැඩි ඇණවුම් සඳහා තවත් වට්ටම්!</b>', 'https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg')">
                 <img src="https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg" alt="Bag" class="product-image">
                 <p class="product-title">Giant Cake Bag<br> 15" x 12" x 15"</p>
-                <div class="price-row-top"><span class="old-price">Rs. 179</span><span class="free-print-badge">FREE PRINT</span></div>
-                <div class="selling-price">Retail: Rs. 159</div>
+                <div class="price-row-top"><span class="old-price">Rs. 169</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 149</div>
                 <span class="wholesale-label">Wholesale Price</span>
-                <div class="new-price">Rs. 134</div>
+                <div class="new-price">Rs. 124</div>
                 <div class="view-btn">View Details</div>
             </div>
 
@@ -395,6 +391,7 @@
                     <input type="number" id="customH" placeholder="උස (H)" oninput="calculateCustomPrice()">
                     <input type="number" id="customG" placeholder="පතුල (G)" oninput="calculateCustomPrice()">
                 </div>
+                <div id="customErrorMsg" style="color: #d32f2f; font-size: 11px; margin-top: 8px; font-weight: bold; display: none;"></div>
             </div>
 
             <div class="price-row-top" style="margin-top: 8px;" id="modalPriceHeader">
@@ -443,7 +440,6 @@
     <div class="reviews-section">
         <h2 class="reviews-title">⭐⭐⭐⭐⭐ Customer Reviews</h2>
         <div class="reviews-container">
-            
             <div class="review-card">
                 <div class="stars">★★★★★</div>
                 <div class="feedback">"Oyalage service eka godak hodai full satisfied ❤️"</div>
@@ -545,10 +541,8 @@
                 <div class="feedback">"COD නෑ කිව්වම අවුල් ගියා එත් මේ වගේ සුපිරියට වැඩෙ කරද්දි COD නැති එක හොඳයි Brother මොකද වැඩෙ සුපිරි.. 👌  "</div>
                 <div class="customer-name">- Gift Center - JA-Ela</div>
             </div>
-
         </div>
     </div>
-
 
     <div class="footer">
         <p><strong>ONE FACE Deals</strong></p>
@@ -585,6 +579,7 @@
 
         if (isCustom) {
             document.getElementById('customSizeInputs').style.display = "block";
+            document.getElementById('customErrorMsg').style.display = "none";
             document.getElementById('modalOldPrice').innerText = "";
             document.getElementById('modalRetailPrice').innerText = "";
             document.getElementById('modalWholesalePrice').innerText = "Rs. 0";
@@ -622,11 +617,36 @@
         let w = parseFloat(document.getElementById('customW').value) || 0;
         let h = parseFloat(document.getElementById('customH').value) || 0;
         let g = parseFloat(document.getElementById('customG').value) || 0;
+        
+        let errorDiv = document.getElementById('customErrorMsg');
+        errorDiv.style.display = "none";
 
         if (w > 0 && h > 0 && g >= 0) {
+            
+            // 🟢 කුඩා සයිස් සඳහා (Mini Bags) පරීක්ෂා කිරීම 🟢
+            if ((baseCustomTitle.includes("Market") || baseCustomTitle.includes("Cake")) && (w <= 11 && h <= 12)) {
+                errorDiv.innerHTML = "⚠️ මෙය ඉතා කුඩා සයිස් එකක් බැවින්, කරුණාකර ඉහළින් ඇති 'Mini Bags' කැටගරියේ Custom Bag එක හරහා මිල ගණනය කරන්න.";
+                errorDiv.style.display = "block";
+                
+                currentItemPrice = 0;
+                document.getElementById('modalWholesalePrice').innerText = "Rs. 0";
+                document.getElementById('modalOldPrice').innerText = "";
+                document.getElementById('modalRetailPrice').innerText = "";
+                currentItemName = baseCustomTitle + " (Invalid Size)";
+                updateTotal();
+                return; 
+            }
+
             let area = (w + g + 1) * (h * 2 + g + 2);
             let rawPrice = area * 0.085 + 25; 
             
+            // Market හා Cake බෑග් සඳහා රු. 10ක වාසිය ලබාදීම
+            if (baseCustomTitle.includes("Market") || baseCustomTitle.includes("Cake")) {
+                rawPrice = rawPrice - 10;
+            }
+            
+            if (rawPrice < 30) rawPrice = 30;
+
             currentItemPrice = getPsychologicalPrice(rawPrice);
             
             let retailPrice = currentItemPrice + 25;
@@ -675,8 +695,9 @@
         let discountAmount = 0;
         let discountPerItem = 0;
 
+        // 🟢 අලුත් ඩිස්කවුන්ට් ක්‍රමය 🟢
         if (qty >= 200 && currentItemPrice > 0) {
-            discountPerItem = (currentItemPrice >= 100) ? 10 : 5; 
+            discountPerItem = (currentItemPrice >= 100) ? 5 : 3; 
             discountAmount = discountPerItem * qty;
         }
 
@@ -746,21 +767,19 @@
         }
     }
 
-    // 🟢 Splash Screen Logic (වීඩියෝ එක ඉවර වුණාම සයිට් එක පෙන්නන කෑල්ල) 🟢
+    // 🟢 Splash Screen Logic (තත්පර 3න් අයින් වීම) 🟢
     document.addEventListener("DOMContentLoaded", function() {
         var splashScreen = document.getElementById('splash-screen');
         var splashVideo = document.getElementById('splash-video');
 
         if(splashVideo) {
-            // වීඩියෝ එක ප්ලේ වෙලා ඉවර වුණ ගමන් splash screen එක අයින් කරන්න
             splashVideo.onended = function() {
                 splashScreen.classList.add('hide-splash');
             };
 
-            // බැරිවෙලාවත් කෙනෙක්ගේ ෆෝන් එකේ වීඩියෝ එක ප්ලේ වුණේ නැත්නම්, තත්පර 5කින් ඔටෝම අයින් වෙන්න
             setTimeout(function() {
                 splashScreen.classList.add('hide-splash');
-            }, 5000);
+            }, 3000); 
         }
     });
 </script>
