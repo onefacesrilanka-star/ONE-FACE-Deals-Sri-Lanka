@@ -168,6 +168,26 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); } 
         }
+
+                .modal-content { 
+            background-color: var(--white); 
+            margin: 5vh auto; /* 5% වෙනුවට 5vh දැම්මා */
+            padding: 12px 15px; /* Padding එක 15px ඉඳන් පොඩ්ඩක් අඩු කළා */
+            border-radius: 10px; 
+            width: 88%; 
+            max-width: 400px; 
+            text-align: center; 
+            position: relative; 
+            animation: slideDown 0.3s ease; 
+            max-height: 80vh; /* 90vh ඉඳන් 80vh කළා (යටින් ඉඩ තියෙන්න) */
+            overflow-y: auto; /* අනිවාර්යයෙන්ම ස්ක්‍රෝල් වෙන්න */
+            overscroll-behavior: contain; /* පිටිපස්සෙ පේජ් එක ස්ක්‍රෝල් වෙන එක නවත්වන්න */
+        }
+        
+        .custom-inputs-box { display: none; background: #fff3e0; border: 1px dashed var(--orange); padding: 8px; border-radius: 8px; margin: 8px 0; }
+        .color-selection { margin: 8px 0; padding: 8px; background: var(--grey); border-radius: 8px; border: 1px solid var(--light-grey); }
+        .qty-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 8px 0; background: var(--grey); padding: 6px; border-radius: 8px; border: 1px solid var(--light-grey); }
+
     </style>
 </head>
 <body>
