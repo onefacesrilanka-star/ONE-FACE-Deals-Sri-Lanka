@@ -632,7 +632,7 @@
         document.getElementById('productModal').style.display = "block";
     }
 
-        function calculateCustomPrice() {
+            function calculateCustomPrice() {
         if (!isCustomBagMode) return;
         
         let w = parseFloat(document.getElementById('customW').value) || 0;
@@ -644,8 +644,8 @@
 
         if (w > 0 && h > 0 && g >= 0) {
             
-            // 🟢 කුඩා සයිස් සඳහා (Mini Bags) පරීක්ෂා කිරීම (කලින් තිබ්බ එක) 🟢
-            if ((baseCustomTitle.includes("Market") || baseCustomTitle.includes("Cake")) && (w <= 11 && h <= 12)) {
+            // 🟢 කුඩා සයිස් සඳහා (Mini Bags) පරීක්ෂා කිරීම (පතුල/Gusset එකත් එක්ක හැදුවා) 🟢
+            if ((baseCustomTitle.includes("Market") || baseCustomTitle.includes("Cake")) && (w <= 11 && h <= 12 && g <= 5)) {
                 errorDiv.innerHTML = "⚠️ මෙය ඉතා කුඩා සයිස් එකක් බැවින්, කරුණාකර ඉහළින් ඇති 'Mini Bags' කැටගරියේ Custom Bag එක හරහා මිල ගණනය කරන්න.";
                 errorDiv.style.display = "block";
                 
@@ -658,8 +658,8 @@
                 return; 
             }
 
-            // 🟢 අලුත් කොටස: ලොකු සයිස් සඳහා පරීක්ෂා කිරීම (Market/Cake Bags වලට යොමු කිරීම) 🟢
-            if (baseCustomTitle.includes("Mini") && (w >= 15 || h >= 13)) {
+            // 🟢 ලොකු සයිස් සඳහා පරීක්ෂා කිරීම (පතුල ලොකු කේක් බෑග් සයිස් ගැහුවොත් යොමු කිරීම) 🟢
+            if (baseCustomTitle.includes("Mini") && (w >= 15 || h >= 13 || g >= 6)) {
                 errorDiv.innerHTML = "⚠️ මෙය විශාල සයිස් එකක් බැවින්, කරුණාකර පහළින් ඇති 'Market Bags' හෝ 'Cake Bags' කැටගරියේ Custom Bag එක හරහා මිල ගණනය කරන්න.";
                 errorDiv.style.display = "block";
                 
@@ -671,13 +671,10 @@
                 updateTotal();
                 return; 
             }
-            // 🟢 අලුත් කොටස ඉවරයි 🟢
 
             let area = (w + g + 1) * (h * 2 + g + 2);
             let rawPrice = area * 0.085 + 25; 
-// ... (ඉතුරු ටික වෙනස් කරන්න එපා)
 
-            
             // Market හා Cake බෑග් සඳහා රු. 10ක වාසිය ලබාදීම
             if (baseCustomTitle.includes("Market") || baseCustomTitle.includes("Cake")) {
                 rawPrice = rawPrice - 10;
@@ -704,6 +701,7 @@
         }
         updateTotal();
     }
+
 
     function selectColor(color, element) {
         currentColor = color;
