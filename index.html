@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONE FACE Deals - Premium Custom Bags</title>
+    <title>ONE FACE Deals - The Face of Premium Packaging</title>
     
-    <meta property="og:title" content="ONE FACE Deals - Sri Lanka">
-    <meta property="og:description" content="Create premium, custom-printed non-woven bags uniquely tailored to your business.">
+        <link rel="icon" type="image/jpeg" href="https://i.ibb.co/6Jy2TP3J/GENEX-LK-20260504-103305-0000.jpg">
+
+    <meta property="og:title" content="ONE FACE DEALS - The Face of Premium Packaging">
+    <meta property="og:description" content="Create premium, custom-printed non-woven bags uniquely tailored to your business. Free front side print included!">
+    <meta property="og:image" content="https://i.ibb.co/6Jy2TP3J/GENEX-LK-20260504-103305-0000.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
     <style>
         :root {
             --dark-green: #004d40; 
@@ -20,43 +26,42 @@
             --price-red: #d32f2f; 
         }
 
+        /* Prevent Copying & Text Selection */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
             padding: 0; 
             background-color: var(--grey);
             color: var(--black);
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         
         body.modal-open { overflow: hidden; }
         
+        /* 🟢 Intro Video Splash Screen 🟢 */
+        #splash-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000000; z-index: 999999; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease-out, visibility 0.8s ease-out; }
+        #splash-video { width: 100%; height: 100%; object-fit: cover; }
+        .hide-splash { opacity: 0 !important; visibility: hidden !important; }
+
         /* Header */
         .header { background-color: var(--white); padding: 15px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 999; border-bottom: 3px solid var(--dark-green); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .header-left { display: flex; align-items: center; gap: 15px; }
         .header img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--orange); }
+        .header-text { display: flex; flex-direction: column; align-items: center; text-align: center; }
         .header-text h1 { font-size: 24px; margin: 0; color: var(--dark-green); font-weight: bold;}
-                .header-text h1 .deals { color: var(--orange); text-transform: uppercase; } 
-
-        /* Top Image Scroll Effect CSS */
-        .vfx-on-scroll-container { width: 100%; height: 280px; overflow: hidden; position: relative; }
-        .scroll-image { width: 100%; height: 100%; object-fit: cover; opacity: 1; transition: opacity 0.1s ease-out; }
-
+        .header-text h1 .deals { color: var(--orange); text-transform: uppercase; } 
         .cart-icon-btn { position: relative; background: none; border: none; cursor: pointer; color: var(--dark-green); font-size: 28px; padding-right: 10px; }
         .cart-count { position: absolute; top: -5px; right: 0px; background: var(--orange); color: var(--white); font-size: 12px; font-weight: bold; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
         /* Hero Section */
-        .hero-section { 
-            position: relative;
-            background-image: url('https://i.ibb.co/CsBL4wkz/A-detailed-studio-202604172105.jpg'); 
-            background-size: cover;
-            background-position: center;
-            text-align: center; 
-            padding: 50px 20px; 
-            border-bottom: 4px solid var(--orange); 
-        }
-        .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255, 255, 255, 0.88); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; }
-        .hero-title { font-size: 28px; margin-bottom: 10px; color: var(--black); text-transform: uppercase; font-weight: bold; }
+        .vfx-on-scroll-container { width: 100%; height: 280px; overflow: hidden; position: relative; }
+        .scroll-image { width: 100%; height: 100%; object-fit: cover; opacity: 1; transition: opacity 0.1s ease-out; }
+        
+        .hero-section { background-color: var(--white); text-align: center; padding: 30px 20px; border-bottom: 4px solid var(--orange); }
+        .hero-title { font-size: 28px; margin-bottom: 10px; color: var(--dark-green); text-transform: uppercase; font-weight: bold; }
         .hero-desc { font-size: 15px; line-height: 1.6; max-width: 800px; margin: 0 auto; color: var(--dark-grey); font-weight: bold; }
         .hero-desc-si { font-size: 13px; color: var(--text-grey); margin-top: 5px; font-style: italic; }
 
@@ -67,11 +72,11 @@
         .cat-subtitle { font-size: 14px; color: var(--text-grey); margin: 0; }
         .cat-subtitle-si { font-size: 12px; color: var(--dark-green); font-style: italic; margin-top: 3px; }
 
-        /* Product Cards Layout */
+        /* Product Cards */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
         .product-card { background: var(--white); border: 1px solid var(--light-grey); border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; position: relative; display: flex; flex-direction: column; justify-content: space-between;}
         .product-card:hover { border-color: var(--orange); box-shadow: 0 6px 12px rgba(255, 152, 0, 0.3); transform: translateY(-5px); }
-        .product-image { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 5px; margin-bottom: 10px; border: 1px solid #eee; }
+        .product-image { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 5px; margin-bottom: 10px; border: 1px solid #eee; pointer-events: none;}
         .product-title { font-size: 14px; color: var(--black); margin: 0 0 5px 0; font-weight: bold; height: 38px;}
         
         .price-row-top { display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 5px; }
@@ -86,7 +91,7 @@
 
         /* Modal Styles */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
-        .modal-content { background-color: var(--white); margin: 5vh auto; padding: 15px; border-radius: 12px; width: 90%; max-width: 400px; position: relative; max-height: 75vh; overflow-y: auto; border: 3px solid var(--dark-green); overscroll-behavior: contain; }
+        .modal-content { background-color: var(--white); margin: 5vh auto; padding: 15px; border-radius: 12px; width: 90%; max-width: 400px; position: relative; max-height: 80vh; overflow-y: auto; border: 3px solid var(--dark-green); overscroll-behavior: contain; }
         .close { position: absolute; right: 15px; top: 10px; font-size: 28px; font-weight: bold; color: var(--black); cursor: pointer; z-index: 10;}
         .close:hover { color: var(--orange); }
         .modal-img-large { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; border: 1px solid var(--light-grey); margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto; cursor: zoom-in;}
@@ -104,11 +109,16 @@
         
         .total-price-box { font-size: 14px; color: var(--dark-green); margin: 8px 0 15px 0; background: #ffebee; padding: 8px; border-radius: 8px; border: 1px dashed var(--price-red); text-align: center; line-height: 1.3; }
         
-        /* Sticky Button CSS */
-        .sticky-btn { position: sticky; bottom: -15px; padding: 12px; font-size: 15px; background: var(--dark-green); color: var(--white); border-radius: 8px; width: 100%; font-weight: bold; border: none; box-shadow: 0 -4px 10px rgba(0,0,0,0.15); cursor: pointer; z-index: 100; }
+        /* Sticky Button Fix */
+        .sticky-btn { position: sticky; bottom: 0px; padding: 12px; font-size: 15px; background: var(--dark-green); color: var(--white); border-radius: 8px; width: 100%; font-weight: bold; border: none; box-shadow: 0 -4px 10px rgba(0,0,0,0.15); cursor: pointer; z-index: 100; margin-bottom: 5px; }
 
-        /* Cart Styles */
-        .cart-panel { position: fixed; top: 0; right: -100%; width: 320px; height: 100%; background: var(--white); box-shadow: -5px 0 15px rgba(0,0,0,0.2); z-index: 1001; transition: right 0.4s ease; display: flex; flex-direction: column; border-left: 3px solid var(--orange); }
+        /* Zoom Lightbox */
+        #zoomLightbox { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; overscroll-behavior: contain; }
+        #zoomedImg { max-width: 95vw; max-height: 90vh; object-fit: contain; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); }
+        .close-zoom { position: absolute; right: 20px; top: 20px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 2001;}
+
+        /* Cart Styles Fix for Mobile Viewport */
+        .cart-panel { position: fixed; top: 0; right: -100%; width: 320px; height: 100dvh; background: var(--white); box-shadow: -5px 0 15px rgba(0,0,0,0.2); z-index: 1001; transition: right 0.4s ease; display: flex; flex-direction: column; border-left: 3px solid var(--orange); }
         .cart-panel.open { right: 0; }
         .cart-header { background: var(--dark-green); color: var(--white); padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--orange); }
         .close-cart { background: none; border: none; color: var(--white); font-size: 24px; cursor: pointer; font-weight: bold; }
@@ -118,7 +128,7 @@
         .cart-footer { padding: 15px; background: var(--white); border-top: 2px solid var(--light-grey); }
         .checkout-btn { background: #25D366; color: var(--white); text-align: center; padding: 12px; display: block; border: none; width: 100%; font-size: 15px; font-weight: bold; border-radius: 5px; transition: 0.3s; cursor: pointer;}
         
-        /* Colors Palette Options */
+        /* Color Palette */
         .color-palette { display: flex; gap: 8px; margin: 10px 0; justify-content: center; flex-wrap: wrap;}
         .color-circle { width: 30px; height: 30px; border-radius: 50%; cursor: pointer; border: 2px solid #ccc; }
         .color-circle.selected { border: 3px solid var(--orange); transform: scale(1.1); box-shadow: 0 0 8px var(--orange); }
@@ -129,61 +139,40 @@
         
         .qty-input-box { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 15px 0; }
         .qty-input-box input { width: 60px; padding: 8px; border: 2px solid var(--light-grey); border-radius: 4px; font-weight: bold; text-align: center; }
-        .qty-btn { background: var(--dark-green); color: white; border: none; width: 30px; height: 30px; border-radius: 5px; font-size: 20px; font-weight: bold; cursor: pointer;}
-        
-        .total-price-box { font-size: 15px; color: var(--dark-green); margin: 10px 0; background: #ffebee; padding: 10px; border-radius: 8px; border: 1px dashed var(--price-red); text-align: center; line-height: 1.4; }
+        .qty-btn { background: var(--dark-green); color: white; border: none; width: 30px; height: 30px; border-radius: 5px; font-size: 20px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center;}
 
-        /* Horizontal Scroll Containers */
-        .horizontal-scroll-container { display: flex; overflow-x: auto; gap: 15px; padding: 15px 10px; scroll-snap-type: x mandatory; }
-        .horizontal-scroll-container::-webkit-scrollbar { height: 8px; }
-        .horizontal-scroll-container::-webkit-scrollbar-thumb { background: var(--dark-green); border-radius: 4px; }
-        .work-img { width: 280px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 2px solid var(--light-grey); flex-shrink: 0; scroll-snap-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .review-card { background: var(--white); padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); width: 280px; flex-shrink: 0; border-left: 4px solid #FFD700; display: flex; flex-direction: column; justify-content: space-between; scroll-snap-align: center;}
+        /* Floating Auto-Scroll Galleries (Marquee) */
+        .marquee-wrapper { overflow: hidden; width: 100%; white-space: nowrap; padding: 15px 0; }
+        .marquee-track { display: inline-flex; gap: 15px; animation: scrollLeft 35s linear infinite; }
+        .marquee-track:hover, .marquee-track:active { animation-play-state: paused; }
+        @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        .work-img { width: 350px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 2px solid var(--light-grey); flex-shrink: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); pointer-events: none;}
+        .review-card { background: var(--white); padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); width: 320px; flex-shrink: 0; border-left: 4px solid #FFD700; display: flex; flex-direction: column; justify-content: space-between; white-space: normal;}
         .stars { color: #FFD700; font-size: 16px; margin-bottom: 8px; }
         .feedback-text { font-size: 13px; color: var(--text-grey); line-height: 1.4; font-style: italic; }
         .customer-name { font-size: 12px; font-weight: bold; color: var(--dark-green); margin-top: 10px; text-align: right; }
         .section-divider { border-top: 2px dashed var(--orange); margin: 40px auto; width: 80%; }
-    /* 🟢 Intro Video Splash Screen Styles 🟢 */
-        #splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000000;
-            z-index: 999999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
-        }
-        #splash-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .hide-splash {
-            opacity: 0 !important;
-            visibility: hidden !important;
-        }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
+
     <div id="splash-screen">
         <video id="splash-video" autoplay muted playsinline>
             <source src="intro.mp4" type="video/mp4">
         </video>
     </div>
+
     <div class="vfx-on-scroll-container">
         <img src="https://i.ibb.co/SX02dr7X/Resize-this-image-202604231858.jpg" class="scroll-image" id="vfxScrollImage">
     </div>
 
-        <div class="header">
+    <div class="header">
         <div class="header-left">
             <img src="https://i.ibb.co/6Jy2TP3J/GENEX-LK-20260504-103305-0000.jpg" alt="Logo">
-            <div class="header-text" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div class="header-text">
                 <h1>ONE FACE <span class="deals">DEALS</span></h1>
-                <p style="font-size: 9px; color: var(--text-grey); margin: 2px 0 0 0; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px; text-align: center;">The Face Of Premium Packaging </p>
+                <p style="font-size: 9.9px; color: var(--text-grey); margin: 2px 0 0 0; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px; text-align: center;">The Face of Premium Packaging</p>
             </div>
         </div>
         <button class="cart-icon-btn" onclick="toggleCart()">
@@ -192,12 +181,9 @@
     </div>
 
     <div class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h2 class="hero-title">Where Your Brand Shines!</h2>
-            <p class="hero-desc">Create premium, custom-printed non-woven bags uniquely tailored to your business with ONE FACE Deals. Deliver a lasting impression to your customers with our eye-catching finishes, high-quality prints, and durable quality.</p>
-            <p class="hero-desc-si">(ONE FACE Deals වෙතින් ඔබේ ව්‍යාපාරයටම ආවේණික වූ, ඉහළම ප්‍රමිතියෙන් යුතු Custom Printed Non-Woven බෑග් නිර්මාණය කරගන්න. ආකර්ෂණීය නිමාව, ඉහළ ප්‍රමිතියේ මුද්‍රණය සහ කල්පැවැත්ම සමඟින් ඔබේ පාරිභෝගිකයාට අලුත් අත්දැකීමක් ලබා දෙන්න.)</p>
-        </div>
+        <h2 class="hero-title">Where Your Brand Shines!</h2>
+        <p class="hero-desc">Create premium, custom-printed non-woven bags uniquely tailored to your business with ONE FACE Deals. Deliver a lasting impression to your customers with our eye-catching finishes, high-quality prints, and durable quality.</p>
+        <p class="hero-desc-si">(ONE FACE Deals වෙතින් ඔබේ ව්‍යාපාරයටම ආවේණික වූ, ඉහළම ප්‍රමිතියෙන් යුතු Custom Printed Non-Woven බෑග් නිර්මාණය කරගන්න. ආකර්ෂණීය නිමාව, ඉහළ ප්‍රමිතියේ මුද්‍රණය සහ කල්පැවැත්ම සමඟින් ඔබේ පාරිභෝගිකයාට අලුත් අත්දැකීමක් ලබා දෙන්න.)</p>
     </div>
 
     <div class="container">
@@ -309,7 +295,6 @@
                 <button class="add-to-cart-btn" style="background: var(--dark-green); color: var(--white);">Custom Size</button>
             </div>
         </div>
-
         <div class="category-header">
             <h2 class="cat-title">3. Cake Bags</h2>
             <p class="cat-subtitle">Wide Gusset Bags for Bakeries & Home Bakers</p>
@@ -384,54 +369,52 @@
             </div>
         </div>
     </div>
+
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <img id="modalImg" src="" class="modal-img-large" title="Click to view full image" onclick="openZoomLightbox(this.src)">
-            <h2 id="modalTitle" style="color: var(--dark-green); margin-bottom: 5px; font-size: 18px;"></h2>
+                                    <h2 id="modalTitle" style="color: var(--dark-green); margin-bottom: 3px; font-size: 16px; text-align: center;"></h2>
+            <div style="text-align: center; margin: 0 0 12px 0; color: #222;">
+                <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.5px;">WIDTH x HEIGHT x GUSSET</div>
+                <div style="font-size: 10px; font-weight: bold; margin-top: 3px;">(පළල x උස x පතුල ලෙස පිළිවෙළින් දක්වා ඇත.)</div>
+                <div style="font-size: 10px; font-weight: bold; margin-top: 2px;">(அகலம் x உயரம் x அடிப்பகுதி)</div>
+            </div>
             
             <div id="customSizeInputs" class="custom-inputs-box">
-                <p style="margin: 0 0 5px 0; font-size: 12px; font-weight: bold; color: var(--dark-green);">Enter Your Size (ඔබේ සයිස් එක ඇතුළත් කරන්න - Inches):</p>
+                <p style="margin: 0 0 5px 0; font-size: 11px; font-weight: bold; color: var(--dark-green);">Enter Your Size (Inches):</p>
                 <div class="custom-input-row">
-                    <input type="number" id="customW" placeholder="Width (W)" oninput="calculateCustomPrice()">
-                    <input type="number" id="customH" placeholder="Height (H)" oninput="calculateCustomPrice()">
-                    <input type="number" id="customG" placeholder="Gusset (G)" oninput="calculateCustomPrice()">
+                    <input type="number" id="customW" placeholder="W" oninput="calculateCustomPrice()">
+                    <input type="number" id="customH" placeholder="H" oninput="calculateCustomPrice()">
+                    <input type="number" id="customG" placeholder="G" oninput="calculateCustomPrice()">
                 </div>
-                <div id="customErrorMsg" style="color: var(--price-red); font-size: 11px; margin-top: 8px; font-weight: bold; display: none;"></div>
+                <div id="customErrorMsg" style="color: var(--price-red); font-size: 10px; margin-top: 5px; display: none;"></div>
             </div>
 
-            <div class="modal-desc-box">
-                <p style="margin: 0; font-size: 13px; line-height: 1.5;">
+            <div class="modal-desc-box" style="background: var(--grey); padding: 8px; margin-top: 8px; border-left: 4px solid var(--orange); text-align: left;">
+                <p style="margin: 0; font-size: 11px; line-height: 1.4;">
                     ✔️ 80GSM Non-Woven Fabric<br>
-                    ✔️ Eco-Friendly & Durable<br>
-                    ✔️ <b>Front side print is FREE!</b> For 2-side print, extra Rs. 3 will be charged. For Gold and Silver colors, extra Rs. 5 will be charged.<br>
+                    ✔️ <b>Front side print is FREE!</b><br> &nbsp;&nbsp;&nbsp;&nbsp;2-side print: +Rs. 3 | Gold/Silver print: +Rs. 5<br>
+                    ✔️ <b style="color: var(--price-red);">Minimum Order: <span id="moqDisplay">100</span> Bags</b><br>
                     ✔️ <b>Extra Discount for 200+ Bags!</b>
                 </p>
             </div>
 
-            <div style="margin: 15px 0; text-align: center;">
-                <span id="modalOldPrice" style="text-decoration: line-through; color: #888; font-size: 14px; margin-right: 10px;"></span>
-                <span id="modalRetailPrice" style="color: var(--dark-green); font-size: 14px; font-weight: bold;"></span>
+            <div style="margin: 8px 0; text-align: center;">
+                <span id="modalOldPrice" style="text-decoration: line-through; color: #888; font-size: 12px; margin-right: 10px;"></span>
+                <span id="modalRetailPrice" style="color: var(--dark-green); font-size: 12px; font-weight: bold;"></span>
             </div>
-            <h3 style="color: var(--orange); margin: 5px 0; font-size: 22px; text-align: center;">Wholesale: <span id="modalWholesalePrice"></span></h3>
+            <h3 style="color: var(--orange); margin: 0 0 8px 0; font-size: 18px; text-align: center;">Wholesale: <span id="modalWholesalePrice"></span></h3>
             
             <div class="print-options-box">
                 <p>Printing Options (මුද්‍රණ තේරීම්)</p>
-                <label class="print-option-label">
-                    <input type="radio" name="printOption" value="0" checked onchange="updateTotal()"> Front side only print (No additional charge)
-                </label>
-                <label class="print-option-label">
-                    <input type="radio" name="printOption" value="3" onchange="updateTotal()"> 2 Side print <span class="print-extra-price">(+ Rs. 3/bag)</span>
-                </label>
-                <label class="print-option-label">
-                    <input type="radio" name="printOption" value="5" onchange="updateTotal()"> Gold or Silver print <span class="print-extra-price">(+ Rs. 5/bag)</span>
-                </label>
-                <label class="print-option-label">
-                    <input type="radio" name="printOption" value="0" onchange="updateTotal()"> Other
-                </label>
+                <label class="print-option-label"><input type="radio" name="printOption" value="0" checked onchange="updateTotal()"> Front side only (Free)</label>
+                <label class="print-option-label"><input type="radio" name="printOption" value="3" onchange="updateTotal()"> 2 Side print <span class="print-extra-price">(+ Rs. 3)</span></label>
+                <label class="print-option-label"><input type="radio" name="printOption" value="5" onchange="updateTotal()"> Gold / Silver print <span class="print-extra-price">(+ Rs. 5)</span></label>
+                <label class="print-option-label"><input type="radio" name="printOption" value="0" onchange="updateTotal()"> Other</label>
             </div>
 
-            <p style="font-weight: bold; font-size: 14px; margin-top: 15px; margin-bottom: 5px; text-align: center;">Select Color (පාට තෝරන්න): <span id="colorNameDisplay" style="color: var(--orange);">White</span></p>
+            <p style="font-weight: bold; font-size: 12px; margin: 8px 0 5px 0; text-align: center;">Select Color: <span id="colorNameDisplay" style="color: var(--orange);">White</span></p>
             <div class="color-palette">
                 <div class="color-circle c-white selected" onclick="selectColor('White', this)"></div>
                 <div class="color-circle c-black" onclick="selectColor('Black', this)"></div>
@@ -445,16 +428,20 @@
                 <div class="color-circle c-other" onclick="selectColor('Other', this)"></div>
             </div>
 
-            <p style="font-weight: bold; font-size: 14px; margin-top: 15px; margin-bottom: 5px; text-align: center;">Quantity (ප්‍රමාණය):</p>
-            <div class="qty-input-box">
-                <button class="qty-btn" onclick="changeQty(-10)">−</button>
-                <input type="number" id="modalQty" value="100" min="50" oninput="updateTotal()">
-                <button class="qty-btn" onclick="changeQty(10)">+</button>
+            <p style="font-weight: bold; font-size: 12px; margin: 8px 0 5px 0; text-align: center;">Quantity (ප්‍රමාණය):</p>
+            <div class="qty-input-box" style="margin: 5px 0;">
+                <button class="qty-btn" onclick="changeQty(-10)" style="height: 30px; font-size: 16px;">−</button>
+                <input type="number" id="modalQty" value="100" min="100" oninput="updateTotal()" style="height: 30px; padding: 5px;">
+                <button class="qty-btn" onclick="changeQty(10)" style="height: 30px; font-size: 16px;">+</button>
             </div>
 
             <div id="totalPriceDisplay" class="total-price-box">Total: Rs. 0</div>
 
-            <button class="add-to-cart-btn" onclick="addToCart()" style="padding: 12px; font-size: 15px; margin-top: 10px; background: var(--dark-green); color: var(--white); border-radius: 8px;">ADD TO CART (කාට් එකට දාන්න)</button>
+                        <div style="position: sticky; bottom: -10px; background: var(--white); padding: 10px 0 5px 0; z-index: 100; display: flex; flex-direction: column; gap: 8px;">
+                <button onclick="addToCart()" style="padding: 12px; font-size: 15px; background: var(--dark-green); color: var(--white); border-radius: 8px; width: 100%; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">ADD TO CART (කාට් එකට දාන්න)</button>
+                <button onclick="buyNow()" style="padding: 12px; font-size: 15px; background: var(--price-red); color: var(--white); border-radius: 8px; width: 100%; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">BUY NOW (දැන්ම මිලදී ගන්න)</button>
+            </div>
+
         </div>
     </div>
 
@@ -481,102 +468,105 @@
 
     <hr class="section-divider">
 
-    <div style="padding: 20px; background: var(--white); text-align: center;">
+    <div style="padding: 20px; background: var(--white); text-align: center; overflow: hidden;">
         <h2 style="color: var(--dark-green); font-size: 22px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">Our Recent Works</h2>
         <p style="font-size: 13px; color: var(--text-grey); margin-top: 0; margin-bottom: 20px;">(අප විසින් මෑතකදී නිමකරන ලද බෑග් කිහිපයක්)</p>
         
-        <div class="horizontal-scroll-container">
-            <img src="https://i.ibb.co/gM4pB0S3/1000455471-11zon.jpg" class="work-img">
-            <img src="https://i.ibb.co/6zF3DG4/1000454990-11zon.jpg" class="work-img">
-            <img src="https://i.ibb.co/Kc5X74p5/1000454425-11zon.jpg" class="work-img">
-            <img src="https://i.ibb.co/gbySwS1d/1000454431-11zon.jpg" class="work-img">
-            <img src="https://i.ibb.co/gqG6G6k/1000448343-11zon.jpg" class="work-img">
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <img src="https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg" class="work-img">
+                <img src="https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg" class="work-img">
+                <img src="https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg" class="work-img">
+                <img src="https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg" class="work-img">
+                <img src="https://i.ibb.co/cSfrxvvN/Gradient-shopping-bag-202604231037.jpg" class="work-img">
+                
+                <img src="https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg" class="work-img">
+                <img src="https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg" class="work-img">
+                <img src="https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg" class="work-img">
+                <img src="https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg" class="work-img">
+                <img src="https://i.ibb.co/cSfrxvvN/Gradient-shopping-bag-202604231037.jpg" class="work-img">
+            </div>
         </div>
     </div>
 
     <hr class="section-divider">
 
-    <div style="padding: 20px; background: var(--grey); text-align: center;">
+    <div style="padding: 20px; background: var(--grey); text-align: center; overflow: hidden;">
         <h2 style="color: var(--orange); font-size: 22px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase;">⭐⭐⭐⭐⭐ Customer Reviews</h2>
         
-        <div class="horizontal-scroll-container">
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"Oyalage service eka godak hodai full satisfied ❤️"</div>
+        <div class="marquee-wrapper">
+            <div class="marquee-track" style="animation-duration: 45s;">
+                <div class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="feedback-text">"Oyalage service eka godak hodai full satisfied ❤️"</div>
+                    </div>
+                    <div class="customer-name">- Dissanayaka Stores - Kandemulla</div>
                 </div>
-                <div class="customer-name">- Dissanayaka Stores - Kandemulla</div>
-            </div>
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"Great customer service. We’ll highly recommend ONE FACE DEALS.We are “CONNETsto”"</div>
+                <div class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="feedback-text">"Best wholesale prices. Good quality bags and very clear logo printing. Highly recommended!"</div>
+                    </div>
+                    <div class="customer-name">- Ravi Stores - Hatton</div>
                 </div>
-                <div class="customer-name">- CONNETsto -Kurundugahahatapma</div>
-            </div>
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"Best wholesale prices. Good quality bags and very clear logo printing. Highly recommended!"</div>
+                <div class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="feedback-text">"ඔයාලගෙ service එක ගොඩක් හොඳයි❤️.පතුල පළල් නිසා කේක් පෙට්ටි දාන්න ලේසියි. නියම සයිස් ටික."</div>
+                    </div>
+                    <div class="customer-name">- The Bake House</div>
                 </div>
-                <div class="customer-name">- Ravi Stores - Hatton</div>
-            </div>
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"ඔයාලගෙ service එක ගොඩක් හොඳයි❤️.පතුල පළල් නිසා කේක් පෙට්ටි දාන්න ලේසියි. නියම සයිස් ටික."</div>
+                <div class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="feedback-text">"Quality is 100%. Advance payment එක කරේ බයෙන් මොකද කලින් තැනකට දාලා සල්ලිත් නෑ බඩුත් නෑ. හැබැයි ඔයාලා විශ්වාසේ තියලා ලස්සනට වැඩේ කරා.❤️"</div>
+                    </div>
+                    <div class="customer-name">- Nuwan Danuddara - Kandy</div>
                 </div>
-                <div class="customer-name">- The Bake House</div>
-            </div>
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"Quality is 100%. Advance payment එක කරේ බයෙන් මොකද කලින් තැනකට දාලා සල්ලිත් නෑ බඩුත් නෑ. හැබැයි ඔයාලා විශ්වාසේ තියලා ලස්සනට වැඩේ කරා.❤️"</div>
+                <div class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="feedback-text">"Very happy with the mini bags. Perfect sizes for our pharmacy items."</div>
+                    </div>
+                    <div class="customer-name">- The First Pharmacy - Polonnaruwa</div>
                 </div>
-                <div class="customer-name">- Nuwan Danuddara - Kandy</div>
-            </div>
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"Very happy with the mini bags. Perfect sizes for our pharmacy items."</div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="feedback-text">"Oyalage service eka godak hodai full satisfied ❤️"</div>
+                    </div>
+                    <div class="customer-name">- Dissanayaka Stores - Kandemulla</div>
                 </div>
-                <div class="customer-name">- The First Pharmacy - Polonnaruwa</div>
-            </div>
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"මාර්කට් බෑග් ටික හිතුවටත් වඩා හයියයි 😍 බර දේවල් දාන්න නියමයි. Thanks ONE FACE Deals."</div>
+                <div class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="feedback-text">"Best wholesale prices. Good quality bags and very clear logo printing. Highly recommended!"</div>
+                    </div>
+                    <div class="customer-name">- Ravi Stores - Hatton</div>
                 </div>
-                <div class="customer-name">- Kasun - Kuliyapitiya</div>
-            </div>
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"ලෝගෝ එක ලස්සනටම Gold පාටින් ප්‍රින්ට් කරලා දීලා තියෙනවා. බිස්නස් එකට ලොකු වටිනාකමක්."</div>
+                <div class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="feedback-text">"ඔයාලගෙ service එක ගොඩක් හොඳයි❤️.පතුල පළල් නිසා කේක් පෙට්ටි දාන්න ලේසියි. නියම සයිස් ටික."</div>
+                    </div>
+                    <div class="customer-name">- The Bake House</div>
                 </div>
-                <div class="customer-name">- Supun - Anuradhapura</div>
-            </div>
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"Gold Color Print එක පට්ට මචං Thank you.... 😍❤️"</div>
+                <div class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="feedback-text">"Quality is 100%. Advance payment එක කරේ බයෙන් මොකද කලින් තැනකට දාලා සල්ලිත් නෑ බඩුත් නෑ. හැබැයි ඔයාලා විශ්වාසේ තියලා ලස්සනට වැඩේ කරා.❤️"</div>
+                    </div>
+                    <div class="customer-name">- Nuwan Danuddara - Kandy</div>
                 </div>
-                <div class="customer-name">- Sakiya Pharmacy</div>
-            </div>
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"බෑග් 1000ක් ලස්සනට පැක් කරලා පිළිවෙළට එවලා තියනවා. සුපිරි මචං ආදරෙ ඉලග පාරත් ගන්නවා..💝"</div>
+                <div class="review-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="feedback-text">"Very happy with the mini bags. Perfect sizes for our pharmacy items."</div>
+                    </div>
+                    <div class="customer-name">- The First Pharmacy - Polonnaruwa</div>
                 </div>
-                <div class="customer-name">- Lavinya Clothes</div>
-            </div>
-            <div class="review-card">
-                <div>
-                    <div class="stars">★★★★★</div>
-                    <div class="feedback-text">"COD නෑ කිව්වම අවුල් ගියා එත් මේ වගේ සුපිරියට වැඩෙ කරද්දි COD නැති එක හොඳයි Brother මොකද වැඩෙ සුපිරි.. 👌"</div>
-                </div>                
-                <div class="customer-name">- Gift Cente
-            </div>       </div>
             </div>
         </div>
     </div>
@@ -599,11 +589,11 @@
     </div>
 
     <div style="background-color: var(--black); color: var(--white); text-align: center; padding: 25px 10px; border-top: 2px solid var(--orange); font-size: 14px;">
-        <p style="margin: 5px 0; font-size: 16px;"><strong>ONE FACE deals</strong></p>
+        <p style="margin: 5px 0; font-size: 16px;"><strong>ONE FACE DEALS</strong></p>
         <p style="margin: 5px 0; color: #ccc;">📬 No.769, Colombo Main Road, Hatton</p>
         <p style="margin: 5px 0; color: #ccc;">📞 077 089 5001</p>
         <p style="margin: 10px 0; font-weight: bold; color: var(--orange);">Island Wide Delivery Available 🇱🇰</p>
-        <p style="font-size: 11px; colo #666; margin-top: 20px;">© 2022-2026 ONE FACE deals. All Rights Reserved.</p>
+        <p style="font-size: 11px; color: #666; margin-top: 20px;">© 2026 ONE FACE Deals. All Rights Reserved.</p>
     </div>
 
     <script>
@@ -613,7 +603,7 @@
         let isCustomBagMode = false;
         let baseCustomTitle = "";
 
-        // Psychological Rounding Algorithm (Restored)
+        // Psychological Rounding Algorithm
         function getPsychologicalPrice(val) {
             let rounded = Math.round(val);
             let rem = rounded % 10;
@@ -629,7 +619,14 @@
             
             document.getElementById('modalTitle').innerHTML = title;
             document.getElementById('modalImg').src = img;
-            document.getElementById('modalQty').value = 100;
+            
+            // 🔥 Dynamic MOQ Logic 🔥
+            let moq = (baseCustomTitle.includes("Mini") || baseCustomTitle.includes("Gift")) ? 150 : 100;
+            document.getElementById('moqDisplay').innerText = moq;
+            
+            let qtyInput = document.getElementById('modalQty');
+            qtyInput.min = moq;
+            qtyInput.value = moq;
             
             // Apply background overlay scroll barrier
             document.body.classList.add('modal-open');
@@ -654,14 +651,14 @@
                 document.getElementById('customH').value = '';
                 document.getElementById('customG').value = '';
                 
-                currentItem = { title: baseCustomTitle + " (Size not set)", price: 0, color: 'White', qty: 100 };
+                currentItem = { title: baseCustomTitle + " (Size not set)", price: 0, color: 'White', qty: moq };
             } else {
                 document.getElementById('customSizeInputs').style.display = "none";
                 document.getElementById('modalOldPrice').innerText = "Rs. " + oldPrice;
                 document.getElementById('modalRetailPrice').innerText = "Retail: Rs. " + retailPrice;
                 document.getElementById('modalWholesalePrice').innerText = "Rs. " + wholesalePrice;
                 
-                currentItem = { title: baseCustomTitle, price: parseInt(wholesalePrice), color: 'White', qty: 100 };
+                currentItem = { title: baseCustomTitle, price: parseInt(wholesalePrice), color: 'White', qty: moq };
             }
 
             updateTotal(); 
@@ -670,14 +667,18 @@
 
         // Image Lightbox View Mechanics
         function openZoomLightbox(src) {
-            document.getElementById('zoomedImg').src = src;
-            document.getElementById('zoomLightbox').style.display = "block";
+            let zoomedImg = document.getElementById('zoomedImg');
+            let lightbox = document.getElementById('zoomLightbox');
+            
+            zoomedImg.src = src;
+            lightbox.style.display = "flex";
         }
+        
         function closeZoomLightbox() {
             document.getElementById('zoomLightbox').style.display = "none";
         }
 
-        // Custom Pricing Engine Aligned to Correct Proportional Ratios
+        // Custom Pricing Engine Aligned to Original Formula
         function calculateCustomPrice() {
             if (!isCustomBagMode) return;
             
@@ -691,7 +692,7 @@
             if (w > 0 && h > 0 && g >= 0) {
                 // Cross category context threshold guard rails
                 if ((baseCustomTitle.includes("Market") || baseCustomTitle.includes("Cake")) && (w <= 11 && h <= 12 && g <= 5)) {
-                    errorDiv.innerHTML = "⚠️ Please use the Custom Mini Bag for smaller sizes. (කුඩා සයිස් සඳහා Mini Bag තෝරන්න)";
+                    errorDiv.innerHTML = "⚠️ Please use the Custom Mini Bag for smaller sizes.";
                     errorDiv.style.display = "block";
                     currentItem.price = 0;
                     document.getElementById('modalWholesalePrice').innerText = "Rs. 0";
@@ -700,7 +701,7 @@
                 }
 
                 if (baseCustomTitle.includes("Mini") && (w >= 15 || h >= 13 || g >= 6)) {
-                    errorDiv.innerHTML = "⚠️ Please use the Custom Market/Cake Bag for larger sizes. (විශාල සයිස් සඳහා Market/Cake Bag තෝරන්න)";
+                    errorDiv.innerHTML = "⚠️ Please use the Custom Market/Cake Bag for larger sizes.";
                     errorDiv.style.display = "block";
                     currentItem.price = 0;
                     document.getElementById('modalWholesalePrice').innerText = "Rs. 0";
@@ -708,11 +709,11 @@
                     return; 
                 }
 
-                // Mathematical Matrix Area Formulation
+                // Original Mathematical Matrix Area Formulation
                 let area = (w + g + 1) * (h * 2 + g + 2);
                 let rawPrice = area * 0.085 + 25; 
 
-                // Integration of the Market/Cake base conversion advantage offset (-10) + requested increase (+4)
+                // Integration of the Market/Cake base conversion advantage offset (-10) + requested increase (+4) = -6
                 if (baseCustomTitle.includes("Market") || baseCustomTitle.includes("Cake")) {
                     rawPrice = rawPrice - 6; 
                 }
@@ -736,7 +737,9 @@
 
         // Live Total Accumulator and Matrix Pricing Parser
         function updateTotal() {
-            let qty = parseInt(document.getElementById('modalQty').value) || 0;
+            let qtyInput = document.getElementById('modalQty');
+            let qty = parseInt(qtyInput.value) || 0;
+            let currentMoq = parseInt(qtyInput.min) || 100;
             
             let printRadio = document.querySelector('input[name="printOption"]:checked');
             let printExtra = printRadio ? parseInt(printRadio.value) || 0 : 0;
@@ -744,7 +747,7 @@
 
             let totalBox = document.getElementById('totalPriceDisplay');
             
-            if(currentItem.price > 0 && qty > 0) {
+            if(currentItem.price > 0 && qty >= currentMoq) {
                 let unitPriceWithPrint = currentItem.price + printExtra;
                 let subtotal = unitPriceWithPrint * qty;
                 let discountAmount = 0;
@@ -762,15 +765,15 @@
 
                 if(discountAmount > 0) {
                     totalBox.innerHTML = `
-                        <span style="font-size:13px; color:var(--text-grey);">Base + Print: Rs. ${unitPriceWithPrint} x ${qty}</span><br>
-                        <span style="font-size:13px; color:var(--text-grey);">Subtotal: Rs. ${subtotal.toLocaleString('en-IN')}</span><br>
-                        <span style="color:var(--orange); font-size:14px; font-weight:bold;">🎉 Discount Applied: - Rs. ${discountAmount.toLocaleString('en-IN')}</span><br>
-                        <strong style="color:var(--price-red); font-size:18px;">Final Total: Rs. ${finalTotal.toLocaleString('en-IN')}</strong>
+                        <span style="font-size:11px; color:var(--text-grey);">Base + Print: Rs. ${unitPriceWithPrint} x ${qty}</span><br>
+                        <span style="font-size:11px; color:var(--text-grey);">Subtotal: Rs. ${subtotal.toLocaleString('en-IN')}</span><br>
+                        <span style="color:var(--orange); font-size:13px; font-weight:bold;">🎉 Discount Applied: - Rs. ${discountAmount.toLocaleString('en-IN')}</span><br>
+                        <strong style="color:var(--price-red); font-size:16px;">Final Total: Rs. ${finalTotal.toLocaleString('en-IN')}</strong>
                     `;
                 } else {
                     totalBox.innerHTML = `
-                        <span style="font-size:13px; color:var(--text-grey);">Base + Print: Rs. ${unitPriceWithPrint} x ${qty}</span><br>
-                        <strong style="color:var(--price-red); font-size:18px;">Total: Rs. ${subtotal.toLocaleString('en-IN')}</strong>
+                        <span style="font-size:11px; color:var(--text-grey);">Base + Print: Rs. ${unitPriceWithPrint} x ${qty}</span><br>
+                        <strong style="color:var(--price-red); font-size:16px;">Total: Rs. ${subtotal.toLocaleString('en-IN')}</strong>
                     `;
                 }
             } else {
@@ -793,9 +796,10 @@
 
         function changeQty(amount) {
             let qtyInput = document.getElementById('modalQty');
-            let qty = parseInt(qtyInput.value) || 100;
+            let moq = parseInt(qtyInput.min) || 100;
+            let qty = parseInt(qtyInput.value) || moq;
             qty += amount;
-            if(qty < 50) qty = 50;
+            if(qty < moq) qty = moq; // 🔥 MOQ Guard 🔥
             qtyInput.value = qty;
             updateTotal();
         }
@@ -848,9 +852,9 @@
                         <div class="cart-item-details" style="width: 85%;">
                             <h4>${item.title}</h4>
                             <p>Color: ${item.color} | Qty: ${item.qty}</p>
-                            <p style="font-size: 10px; color: var(--dark-green);">🖨️ ${item.printOptionText}</p>
-                            ${discountAmount > 0 ? `<p style="color: var(--orange); font-size: 11px;">Discount Applied: -Rs. ${discountAmount}</p>` : ''}
-                            <p style="color: var(--black); font-size: 14px;">Rs. ${finalItemTotal.toLocaleString('en-IN')}</p>
+                            <p style="font-size: 10px; color: var(--dark-green); margin-top: 2px;">🖨️ ${item.printOptionText}</p>
+                            ${discountAmount > 0 ? `<p style="color: var(--orange); font-size: 10px;">Discount Applied: -Rs. ${discountAmount}</p>` : ''}
+                            <p style="color: var(--black); font-size: 14px; font-weight: bold;">Rs. ${finalItemTotal.toLocaleString('en-IN')}</p>
                         </div>
                         <button class="remove-item-btn" onclick="removeFromCart(${index})">X</button>
                     </div>
@@ -926,36 +930,57 @@
                 lightbox.style.display = "none";
             }
         }
-        // Top Image VFX Scroll Effect
-        window.addEventListener('scroll', function() {
-            const scrollImage = document.getElementById('vfxScrollImage');
-            if(scrollImage) {
-                let scrollOffset = window.scrollY;
-                let maxScroll = 280; 
-                let opacity = 1 - (scrollOffset / maxScroll);
-                let translateY = scrollOffset * 0.5; 
-                if (opacity < 0) opacity = 0;
-                scrollImage.style.opacity = opacity;
-                scrollImage.style.transform = `translateY(${translateY}px)`;
-            }
-        });
-        // 🟢 Splash Screen Logic (තත්පර 4න් අයින් වීම) 🟢
+
+        // Splash Screen Logic (4 Seconds)
         document.addEventListener("DOMContentLoaded", function() {
             var splashScreen = document.getElementById('splash-screen');
             var splashVideo = document.getElementById('splash-video');
 
             if(splashVideo) {
-                // වීඩියෝ එක ඉවර වුණොත් අයින් වෙන්න
                 splashVideo.onended = function() {
                     splashScreen.classList.add('hide-splash');
                 };
 
-                // අනිවාර්යයෙන් තත්පර 4න් අයින් වෙන්න
                 setTimeout(function() {
                     splashScreen.classList.add('hide-splash');
                 }, 4000); 
+            } else if(splashScreen) {
+                 setTimeout(function() {
+                    splashScreen.classList.add('hide-splash');
+                }, 4000);
             }
         });
+                // Buy Now Button Logic (Direct to WhatsApp)
+        function buyNow() {
+            if(currentItem.price === 0) {
+                alert("Please enter valid dimensions for the custom bag! (කරුණාකර සයිස් එක නිවැරදිව ලබා දෙන්න)");
+                return;
+            }
+            
+            updateTotal();
+            let qty = parseInt(document.getElementById('modalQty').value);
+            currentItem.qty = qty;
+            
+            let itemTotal = currentItem.finalUnitPrice * qty;
+            let discountAmount = 0;
+            if (qty >= 200) {
+                let discountPerItem = (currentItem.finalUnitPrice >= 100) ? 5 : 3; 
+                discountAmount = discountPerItem * qty;
+            }
+            let finalItemTotal = itemTotal - discountAmount;
+
+            let message = "Hello ONE FACE DEALS, I would like to buy this item directly:\n\n";
+            message += `*${currentItem.title}*\n`;
+            message += `🎨 Color: ${currentItem.color}\n`;
+            message += `🖨️ Print: ${currentItem.printOptionText}\n`;
+            message += `📦 Qty: ${qty}\n`;
+            message += `💵 Subtotal: Rs. ${finalItemTotal.toLocaleString('en-IN')}\n\n`;
+            message += `*💰 Grand Total: Rs. ${finalItemTotal.toLocaleString('en-IN')}*\n\nPlease confirm my order.`;
+
+            let waLink = `https://wa.me/94770895001?text=${encodeURIComponent(message)}`;
+            window.open(waLink, '_blank');
+        }
+
     </script>
 </body>
 </html>
