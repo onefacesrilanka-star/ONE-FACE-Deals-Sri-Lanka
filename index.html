@@ -141,18 +141,19 @@
         .qty-input-box input { width: 60px; padding: 8px; border: 2px solid var(--light-grey); border-radius: 4px; font-weight: bold; text-align: center; }
         .qty-btn { background: var(--dark-green); color: white; border: none; width: 30px; height: 30px; border-radius: 5px; font-size: 20px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center;}
 
-        /* Floating Auto-Scroll Galleries (Marquee) */
-        .marquee-wrapper { overflow: hidden; width: 100%; white-space: nowrap; padding: 15px 0; }
-        .marquee-track { display: inline-flex; gap: 15px; animation: scrollLeft 35s linear infinite; }
-        .marquee-track:hover, .marquee-track:active { animation-play-state: paused; }
-        @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+               /* Auto-Scroll & Draggable Galleries */
+        .draggable-gallery { display: flex; gap: 15px; overflow-x: auto; padding: 15px 0; scroll-behavior: auto; -webkit-overflow-scrolling: touch; cursor: grab; }
+        .draggable-gallery:active { cursor: grabbing; }
+        .draggable-gallery::-webkit-scrollbar { display: none; }
+        .draggable-gallery { -ms-overflow-style: none; scrollbar-width: none; }
 
-        .work-img { width: 350px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 2px solid var(--light-grey); flex-shrink: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); pointer-events: none;}
-        .review-card { background: var(--white); padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); width: 320px; flex-shrink: 0; border-left: 4px solid #FFD700; display: flex; flex-direction: column; justify-content: space-between; white-space: normal;}
+        .work-img { width: 320px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 2px solid var(--light-grey); flex-shrink: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: zoom-in; }
+        .review-card { background: var(--white); padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); width: 300px; flex-shrink: 0; border-left: 4px solid #FFD700; display: flex; flex-direction: column; justify-content: space-between; white-space: normal; }
         .stars { color: #FFD700; font-size: 16px; margin-bottom: 8px; }
         .feedback-text { font-size: 13px; color: var(--text-grey); line-height: 1.4; font-style: italic; }
         .customer-name { font-size: 12px; font-weight: bold; color: var(--dark-green); margin-top: 10px; text-align: right; }
         .section-divider { border-top: 2px dashed var(--orange); margin: 40px auto; width: 80%; }
+
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -468,106 +469,43 @@
 
     <hr class="section-divider">
 
-    <div style="padding: 20px; background: var(--white); text-align: center; overflow: hidden;">
+        <div style="padding: 20px; background: var(--white); text-align: center; overflow: hidden;">
         <h2 style="color: var(--dark-green); font-size: 22px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">Our Recent Works</h2>
-        <p style="font-size: 13px; color: var(--text-grey); margin-top: 0; margin-bottom: 20px;">(අප විසින් මෑතකදී නිමකරන ලද බෑග් කිහිපයක්)</p>
+        <p style="font-size: 13px; color: var(--text-grey); margin-top: 0; margin-bottom: 10px;">(අප විසින් මෑතකදී නිමකරන ලද බෑග් කිහිපයක්)</p>
         
-        <div class="marquee-wrapper">
-            <div class="marquee-track">
-                <img src="https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg" class="work-img">
-                <img src="https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg" class="work-img">
-                <img src="https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg" class="work-img">
-                <img src="https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg" class="work-img">
-                <img src="https://i.ibb.co/cSfrxvvN/Gradient-shopping-bag-202604231037.jpg" class="work-img">
-                
-                <img src="https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg" class="work-img">
-                <img src="https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg" class="work-img">
-                <img src="https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg" class="work-img">
-                <img src="https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg" class="work-img">
-                <img src="https://i.ibb.co/cSfrxvvN/Gradient-shopping-bag-202604231037.jpg" class="work-img">
-            </div>
+        <div class="draggable-gallery" id="workGallery">
+            <img src="https://i.ibb.co/HDbbjMRC/IMG-20260603-194215.jpg" class="work-img" onclick="openZoomLightbox(this.src)">
+            <img src="https://i.ibb.co/p6xdyFyp/IMG-20260603-003920.jpg" class="work-img" onclick="openZoomLightbox(this.src)">
+            <img src="https://i.ibb.co/XkbzJKX0/IMG-20260601-154924.jpg" class="work-img" onclick="openZoomLightbox(this.src)">
+            <img src="https://i.ibb.co/vSm2213/IMG-20260601-160216.jpg" class="work-img" onclick="openZoomLightbox(this.src)">
+            <img src="https://i.ibb.co/gqG6G6k/1000448343-11zon.jpg" class="work-img" onclick="openZoomLightbox(this.src)">
+            <img src="https://i.ibb.co/ZRF7ZxQv/IMG-20260501-184535.jpg" class="work-img" onclick="openZoomLightbox(this.src)">
+            <img src="https://i.ibb.co/zThY1Z9t/20260504-111811.jpg" class="work-img" onclick="openZoomLightbox(this.src)">
+            <img src="https://i.ibb.co/1tLLR8T6/IMG-20260603-194236.jpg" class="work-img" onclick="openZoomLightbox(this.src)">
         </div>
     </div>
 
     <hr class="section-divider">
 
     <div style="padding: 20px; background: var(--grey); text-align: center; overflow: hidden;">
-        <h2 style="color: var(--orange); font-size: 22px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase;">⭐⭐⭐⭐⭐ Customer Reviews</h2>
+        <h2 style="color: var(--orange); font-size: 22px; font-weight: bold; margin-bottom: 15px; text-transform: uppercase;">⭐⭐⭐⭐⭐ Customer Reviews</h2>
         
-        <div class="marquee-wrapper">
-            <div class="marquee-track" style="animation-duration: 45s;">
-                <div class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <div class="feedback-text">"Oyalage service eka godak hodai full satisfied ❤️"</div>
-                    </div>
-                    <div class="customer-name">- Dissanayaka Stores - Kandemulla</div>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <div class="feedback-text">"Best wholesale prices. Good quality bags and very clear logo printing. Highly recommended!"</div>
-                    </div>
-                    <div class="customer-name">- Ravi Stores - Hatton</div>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <div class="feedback-text">"ඔයාලගෙ service එක ගොඩක් හොඳයි❤️.පතුල පළල් නිසා කේක් පෙට්ටි දාන්න ලේසියි. නියම සයිස් ටික."</div>
-                    </div>
-                    <div class="customer-name">- The Bake House</div>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <div class="feedback-text">"Quality is 100%. Advance payment එක කරේ බයෙන් මොකද කලින් තැනකට දාලා සල්ලිත් නෑ බඩුත් නෑ. හැබැයි ඔයාලා විශ්වාසේ තියලා ලස්සනට වැඩේ කරා.❤️"</div>
-                    </div>
-                    <div class="customer-name">- Nuwan Danuddara - Kandy</div>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <div class="feedback-text">"Very happy with the mini bags. Perfect sizes for our pharmacy items."</div>
-                    </div>
-                    <div class="customer-name">- The First Pharmacy - Polonnaruwa</div>
-                </div>
+        <div class="draggable-gallery" id="reviewGallery">
+            <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"Oyalage service eka godak hodai full satisfied ❤️"</div></div><div class="customer-name">- Dissanayaka Stores</div></div>
+            <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"Best wholesale prices. Good quality bags and very clear logo printing. Highly recommended!"</div></div><div class="customer-name">- Ravi Stores - Hatton</div></div>
+            <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"ඔයාලගෙ service එක ගොඩක් හොඳයි❤️.පතුල පළල් නිසා කේක් පෙට්ටි දාන්න ලේසියි."</div></div><div class="customer-name">- The Bake House</div></div>
+            <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"Quality is 100%. විශ්වාසේ තියලා ලස්සනට වැඩේ කරා.❤️"</div></div><div class="customer-name">- Nuwan Danuddara - Kandy</div></div>
+            <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"Very happy with the mini bags. Perfect sizes for our pharmacy items."</div></div><div class="customer-name">- The First Pharmacy</div></div>
+            <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"ලෝගෝ එක ලස්සනටම Gold පාටින් ප්‍රින්ට් කරලා දීලා තියෙනවා. බිස්නස් එකට ලොකු වටිනාකමක්."</div></div><div class="customer-name">- Supun - Anuradhapura</div></div>
+                        <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"බෑග් වල කොලිටි එක සුපිරි. වෙලාවටම ඩිලිවරි එකත් ආවා. බොහොම ස්තූතියි!"</div></div><div class="customer-name">- Cake House - Kurunegala</div></div>
+            <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"Logo print quality is amazing. Highly recommended for small businesses."</div></div><div class="customer-name">- Tech Mobile - Colombo</div></div>
+            <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"ගාණත් අඩුයි, කතාබහ කරලා වැඩේ කරගන්නත් ලේසියි. අනිවාර්යයෙන් දිගටම ඕඩර් දෙනවා."</div></div><div class="customer-name">- Sanduni Dress Point - Gampaha</div></div>
+            <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"Pharmacy එකට ගත්ත mini bags ටික නියමයි. Print එකත් පැහැදිලියි."</div></div><div class="customer-name">- City Care Pharmacy - Kandy</div></div>
+            <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"Heavy-duty market bags are truly strong as advertised. Great for grocery items."</div></div><div class="customer-name">- Fresh Super - Negombo</div></div>
+                        <div class="review-card"><div><div class="stars">★★★★★</div><div class="feedback-text">"Great customer service. We’ll highly recommend ONE FACE DEALS."</div></div><div class="customer-name">- CONNETsto</div></div>
+        </div>
+    </div>
 
-                <div class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <div class="feedback-text">"Oyalage service eka godak hodai full satisfied ❤️"</div>
-                    </div>
-                    <div class="customer-name">- Dissanayaka Stores - Kandemulla</div>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <div class="feedback-text">"Best wholesale prices. Good quality bags and very clear logo printing. Highly recommended!"</div>
-                    </div>
-                    <div class="customer-name">- Ravi Stores - Hatton</div>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <div class="feedback-text">"ඔයාලගෙ service එක ගොඩක් හොඳයි❤️.පතුල පළල් නිසා කේක් පෙට්ටි දාන්න ලේසියි. නියම සයිස් ටික."</div>
-                    </div>
-                    <div class="customer-name">- The Bake House</div>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <div class="feedback-text">"Quality is 100%. Advance payment එක කරේ බයෙන් මොකද කලින් තැනකට දාලා සල්ලිත් නෑ බඩුත් නෑ. හැබැයි ඔයාලා විශ්වාසේ තියලා ලස්සනට වැඩේ කරා.❤️"</div>
-                    </div>
-                    <div class="customer-name">- Nuwan Danuddara - Kandy</div>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <div class="feedback-text">"Very happy with the mini bags. Perfect sizes for our pharmacy items."</div>
-                    </div>
-                    <div class="customer-name">- The First Pharmacy - Polonnaruwa</div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -930,9 +868,65 @@
                 lightbox.style.display = "none";
             }
         }
+        // Auto-Scroll & Drag Logic for Galleries
+        function setupDraggableGallery(galleryId) {
+            const slider = document.getElementById(galleryId);
+            if (!slider) return;
+            
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let autoScroll;
+
+            // Scroll 1px every 30ms
+            const startScrolling = () => {
+                autoScroll = setInterval(() => {
+                    slider.scrollLeft += 1;
+                    if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 1)) {
+                        slider.scrollLeft = 0; // Reset to start
+                    }
+                }, 30);
+            };
+            const stopScrolling = () => clearInterval(autoScroll);
+
+            startScrolling(); // Start on load
+
+            // Mobile Touch Swiping
+            slider.addEventListener('touchstart', stopScrolling, {passive: true});
+            slider.addEventListener('touchend', startScrolling);
+
+            // Desktop Mouse Dragging
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                stopScrolling();
+                slider.style.cursor = 'grabbing';
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => {
+                if(isDown) startScrolling();
+                isDown = false;
+                slider.style.cursor = 'grab';
+            });
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                startScrolling();
+                slider.style.cursor = 'grab';
+            });
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2; // scroll-fast multiplier
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        }
 
         // Splash Screen Logic (4 Seconds)
         document.addEventListener("DOMContentLoaded", function() {
+                    setupDraggableGallery('workGallery');
+            setupDraggableGallery('reviewGallery');
+
             var splashScreen = document.getElementById('splash-screen');
             var splashVideo = document.getElementById('splash-video');
 
