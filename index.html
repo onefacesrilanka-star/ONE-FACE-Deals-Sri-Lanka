@@ -13,7 +13,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-                /* 🟢 සයිට් එක එහෙට මෙහෙට යන එකයි Zoom වෙන එකයි සම්පූර්ණයෙන්ම නැවැත්වීම 🟢 */
+        /* 🟢 සයිට් එක එහෙට මෙහෙට යන එකයි Zoom වෙන එකයි සම්පූර්ණයෙන්ම නැවැත්වීම 🟢 */
         * {
             box-sizing: border-box;
         }
@@ -199,11 +199,11 @@
 
     <div class="hero-section">
         <h2 class="hero-title">Where Your Brand Shines!</h2>
-        <p class="hero-desc">Elevate your brand with premium,custom-printed Non-Woven bags from ONE FACE Packaging that capture your customers' hearts.<br><br>Forget flimsy heat-pressed bags.Ours are a 100% local masterpiece,carefully hand-stitched for superior strength and crafted with love by our own Sri Lankan hands.Experience long-lasting quality and a striking finish that adds genuine value to your business.</p>
+        <p class="hero-desc">Elevate your brand with premium, custom-printed Non-Woven bags from ONE FACE Packaging that capture your customers' hearts.<br><br>Forget flimsy heat-pressed bags. Ours are a 100% local masterpiece, carefully hand-stitched for superior strength and crafted with love by our own Sri Lankan hands. Experience long-lasting quality and a striking finish that adds genuine value to your business.</p>
         <p class="hero-desc-si">ONE FACE Packaging වෙතින් ඔබේ ව්‍යාපාරයේ අභිමානය පාරිභෝගික හදවත් තුළ සදහටම රඳවන, උසස්ම ප්‍රමිතියේ මුද්‍රිත Non-Woven බෑග්.<br><br>යන්ත්‍ර මඟින් රත් කර ඇලවූ (Heat-pressed) බෑග් වෙනුවට, <br>අපේම ලාංකීය දෑත්වලින් සෙනෙහසින් සහ ඉතා ශක්තිමත්ව මැසූ 100% ක්ම දේශීය නිමැවුමක් දැන් ඔබට. කල්පවතින ගුණාත්මක බව සහ නෙත් පිනවන නිමාව සමඟින්, ඔබේ ව්‍යාපාරයට වටිනාකමක්ම එක් කරගන්න.</p>
     </div>
 
-    <!-- 🟢 අලුත් Category Navigation Menu එක 🟢 -->
+    <!-- Category Navigation Menu -->
     <div class="category-nav-wrapper">
         <div class="category-nav">
             <a href="javascript:void(0)" class="cat-nav-item active" onclick="filterCategory('all', this)">
@@ -315,6 +315,8 @@
                 <button class="add-to-cart-btn" style="background: var(--dark-green); color: var(--white);">Custom Size</button>
             </div>
         </div>
+
+        <!-- 3. Gift Shops -->
         <div class="category-header" id="cat-gift">
             <div>
                 <h2 class="cat-title">3. Gift Shops <i data-lucide="gift" class="cat-header-icon"></i></h2>
@@ -363,6 +365,7 @@
             </div>
         </div>
 
+        <!-- 4. Books & Stationery -->
         <div class="category-header" id="cat-book">
             <div>
                 <h2 class="cat-title">4. Books & Stationery <i data-lucide="book-open" class="cat-header-icon"></i></h2>
@@ -410,7 +413,7 @@
                 <button class="add-to-cart-btn" style="background: var(--dark-green); color: var(--white);">Custom Size</button>
             </div>
         </div>
-
+        <!-- 5. Cake Shops -->
         <div class="category-header" id="cat-cake">
             <div>
                 <h2 class="cat-title">5. Cake Shops <i data-lucide="cake" class="cat-header-icon"></i></h2>
@@ -421,33 +424,63 @@
             </div>
         </div>
         <div class="product-grid">
-            <div class="product-card" onclick="openModal('Square Cake Bag - 10&quot; x 10&quot; x 10&quot;', 129, 109, 74, 'https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg', false)">
-                <img src="https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg" class="product-image">
-                <h3 class="product-title">Square Cake Bag<br>10" x 10" x 10"</h3>
-                <div class="price-row-top"><span class="old-price">Rs. 129</span><span class="free-print-badge">FREE PRINT</span></div>
-                <div class="selling-price">Retail: Rs. 109</div>
+            <div class="product-card" onclick="openModal('Cake Box Bag - 7&quot; x 10&quot; x 10&quot;', 113, 93, 68, 'https://i.ibb.co/xKng0ZjN/Yellow-shopping-bag-202604231040.jpg', false)">
+                <img src="https://i.ibb.co/xKng0ZjN/Yellow-shopping-bag-202604231040.jpg" class="product-image">
+                <h3 class="product-title">Cake Box Bag<br>7" x 10" x 10"</h3>
+                <div class="price-row-top"><span class="old-price">Rs. 113</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 93</div>
                 <span class="wholesale-label">Wholesale Price</span>
-                <div class="new-price">Rs. 74</div>
+                <div class="new-price">Rs. 68</div>
                 <button class="add-to-cart-btn">View Details</button>
             </div>
             
-            <div class="product-card" onclick="openModal('Cake Box Bag - 7&quot; x 11&quot; x 11&quot;', 129, 109, 74, 'https://i.ibb.co/mV3xXT3r/White-shopping-bag-202604231018.jpg', false)">
+            <div class="product-card" onclick="openModal('Cake Box Bag - 7&quot; x 11&quot; x 11&quot;', 118, 98, 73, 'https://i.ibb.co/mV3xXT3r/White-shopping-bag-202604231018.jpg', false)">
                 <img src="https://i.ibb.co/mV3xXT3r/White-shopping-bag-202604231018.jpg" class="product-image">
                 <h3 class="product-title">Cake Box Bag<br>7" x 11" x 11"</h3>
-                <div class="price-row-top"><span class="old-price">Rs. 129</span><span class="free-print-badge">FREE PRINT</span></div>
-                <div class="selling-price">Retail: Rs. 109</div>
+                <div class="price-row-top"><span class="old-price">Rs. 118</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 98</div>
                 <span class="wholesale-label">Wholesale Price</span>
-                <div class="new-price">Rs. 74</div>
+                <div class="new-price">Rs. 73</div>
                 <button class="add-to-cart-btn">View Details</button>
             </div>
             
-            <div class="product-card" onclick="openModal('Giant Cake Bag - 12&quot; x 15&quot; x 15&quot;', 229, 189, 129, 'https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg', false)">
+            <div class="product-card" onclick="openModal('Square Cake Bag - 10&quot; x 10&quot; x 10&quot;', 123, 103, 78, 'https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg', false)">
+                <img src="https://i.ibb.co/WWvCHj1q/White-shopping-bag-202604231020.jpg" class="product-image">
+                <h3 class="product-title">Square Cake Bag<br>10" x 10" x 10"</h3>
+                <div class="price-row-top"><span class="old-price">Rs. 123</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 103</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 78</div>
+                <button class="add-to-cart-btn">View Details</button>
+            </div>
+
+            <div class="product-card" onclick="openModal('Large Cake Bag - 7&quot; x 13&quot; x 13&quot;', 133, 113, 88, 'https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg', false)">
+                <img src="https://i.ibb.co/XrzVwhb1/Yellow-shopping-bag-202604231028.jpg" class="product-image">
+                <h3 class="product-title">Large Cake Bag<br>7" x 13" x 13"</h3>
+                <div class="price-row-top"><span class="old-price">Rs. 133</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 113</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 88</div>
+                <button class="add-to-cart-btn">View Details</button>
+            </div>
+            
+            <div class="product-card" onclick="openModal('Square Cake Bag - 13&quot; x 13&quot; x 13&quot;', 158, 138, 113, 'https://i.ibb.co/7xMJWmCq/Yellow-shopping-bag-202604231031.jpg', false)">
+                <img src="https://i.ibb.co/7xMJWmCq/Yellow-shopping-bag-202604231031.jpg" class="product-image">
+                <h3 class="product-title">Square Cake Bag<br>13" x 13" x 13"</h3>
+                <div class="price-row-top"><span class="old-price">Rs. 158</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 138</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 113</div>
+                <button class="add-to-cart-btn">View Details</button>
+            </div>
+            
+            <div class="product-card" onclick="openModal('Giant Cake Bag - 12&quot; x 15&quot; x 15&quot;', 173, 153, 128, 'https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg', false)">
                 <img src="https://i.ibb.co/0WPTYwL/Pink-shopping-bag-202604231024.jpg" class="product-image">
                 <h3 class="product-title">Giant Cake Bag<br>12" x 15" x 15"</h3>
-                <div class="price-row-top"><span class="old-price">Rs. 229</span><span class="free-print-badge">FREE PRINT</span></div>
-                <div class="selling-price">Retail: Rs. 189</div>
+                <div class="price-row-top"><span class="old-price">Rs. 173</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 153</div>
                 <span class="wholesale-label">Wholesale Price</span>
-                <div class="new-price">Rs. 129</div>
+                <div class="new-price">Rs. 128</div>
                 <button class="add-to-cart-btn">View Details</button>
             </div>
             
@@ -459,6 +492,7 @@
             </div>
         </div>
 
+        <!-- 6. Restaurants -->
         <div class="category-header" id="cat-restaurant">
             <div>
                 <h2 class="cat-title">6. Restaurants <i data-lucide="utensils" class="cat-header-icon"></i></h2>
@@ -497,6 +531,7 @@
             </div>
         </div>
 
+        <!-- 7. Clothing & Shoes -->
         <div class="category-header" id="cat-clothing">
             <div>
                 <h2 class="cat-title">7. Clothing & Shoes <i data-lucide="shirt" class="cat-header-icon"></i></h2>
@@ -517,10 +552,10 @@
                 <button class="add-to-cart-btn">View Details</button>
             </div>
             
-            <div class="product-card" onclick="openModal('Large Boutique Bag - 18&quot; x 16&quot; x 6&quot;', 179, 149, 104, 'https://i.ibb.co/Xks4Ws0S/Light-green-shopping-202604231012.jpg', false)">
+            <div class="product-card" onclick="openModal('Large Boutique Bag - 18&quot; x 16&quot; x 6&quot;', 184, 149, 104, 'https://i.ibb.co/Xks4Ws0S/Light-green-shopping-202604231012.jpg', false)">
                 <img src="https://i.ibb.co/Xks4Ws0S/Light-green-shopping-202604231012.jpg" class="product-image">
                 <h3 class="product-title">Large Boutique Bag<br>18" x 16" x 6"</h3>
-                <div class="price-row-top"><span class="old-price">Rs. 179</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="price-row-top"><span class="old-price">Rs. 184</span><span class="free-print-badge">FREE PRINT</span></div>
                 <div class="selling-price">Retail: Rs. 149</div>
                 <span class="wholesale-label">Wholesale Price</span>
                 <div class="new-price">Rs. 104</div>
@@ -545,6 +580,7 @@
             </div>
         </div>
 
+        <!-- 8. Market Bags -->
         <div class="category-header" id="cat-market">
             <div>
                 <h2 class="cat-title">8. Market Bags <i data-lucide="shopping-basket" class="cat-header-icon"></i></h2>
@@ -555,6 +591,16 @@
             </div>
         </div>
         <div class="product-grid">
+            <div class="product-card" onclick="openModal('Standard Market Bag - 13&quot; x 15&quot; x 6&quot;', 144, 104, 83, 'https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg', false)">
+                <img src="https://i.ibb.co/0pfJDbm0/Orange-shopping-bag-202604231005.jpg" class="product-image">
+                <h3 class="product-title">Standard Market<br>13" x 15" x 6"</h3>
+                <div class="price-row-top"><span class="old-price">Rs. 144</span><span class="free-print-badge">FREE PRINT</span></div>
+                <div class="selling-price">Retail: Rs. 104</div>
+                <span class="wholesale-label">Wholesale Price</span>
+                <div class="new-price">Rs. 83</div>
+                <button class="add-to-cart-btn">View Details</button>
+            </div>
+
             <div class="product-card" onclick="openModal('Large Market Bag - 17&quot; x 15&quot; x 5&quot;', 154, 134, 93, 'https://i.ibb.co/yDPsg9V/Blue-shopping-bag-202604231008.jpg', false)">
                 <img src="https://i.ibb.co/yDPsg9V/Blue-shopping-bag-202604231008.jpg" class="product-image">
                 <h3 class="product-title">Large Market<br>17" x 15" x 5"</h3>
@@ -594,8 +640,7 @@
             </div>
         </div>
 
-    </div> 
-
+    </div> <!-- End of container -->
     <!-- Modal Styles -->
     <div id="productModal" class="modal">
         <div class="modal-content">
@@ -769,12 +814,10 @@
         <div style="margin-top: 25px; padding: 15px; background: #fff3e0; border: 1px dashed var(--orange); border-radius: 8px; text-align: center; word-wrap: break-word; white-space: normal;">
             <p style="margin: 0; font-size: 15px; font-weight: 900; color: #000;">OUR PROMISE</p>
             
-            <!-- English Section -->
             <p style="margin: 5px 0; font-size: 14px; color: var(--dark-green); font-weight: bold; line-height: 1.5; word-break: break-word;">
                 "We do not use machine-glued or heat-pressed methods. Every bag is carefully and strongly hand-stitched by our skilled local workers, ensuring superior durability and quality. We are committed to providing you with a 100% authentic, high-quality product!"
             </p>
             
-            <!-- Sinhala Section -->
             <p style="margin: 10px 0 0 0; font-size: 13px; color: var(--text-grey); font-weight: bold; font-style: italic; line-height: 1.5; word-break: break-word;">
                 "අපගේ බෑග් කිසිවක් යන්ත්‍ර මඟින් රත් කර අලවන ලද (Heat-pressed) ඒවා නොවේ. සෑම බෑගයක්ම අපගේ දක්ෂ ශ්‍රී ලාංකීය අම්මලා, තාත්තලා, සහෝදර සහෝදරියන්ගේ දෑතින් ඉතාමත් ශක්තිමත්ව සහ නිවැරදිව මසා ඔබ අතට පත් කෙරේ. ඒ නිසාම ඔබට ලැබෙන්නේ 100% ක් ගුණාත්මක දේශීය නිමැවුමකි."
             </p>
@@ -803,6 +846,7 @@
         <p style="margin: 10px 0; font-weight: bold; color: var(--orange);">Island Wide Delivery Available 🇱🇰</p>
         <p style="font-size: 11px; color: #666; margin-top: 20px;">© 2026 ONE FACE Deals. All Rights Reserved.</p>
     </div>
+
     <script>
         let currentItem = {};
         let cart = [];
@@ -810,7 +854,7 @@
         let isCustomBagMode = false;
         let baseCustomTitle = "";
 
-        // Psychological Rounding Algorithm
+        // Psychological Rounding Algorithm (Old Formula)
         function getPsychologicalPrice(val) {
             let rounded = Math.round(val);
             let rem = rounded % 10;
@@ -828,14 +872,13 @@
             document.getElementById('modalImg').src = img;
             
             let numericPrice = parseInt(wholesalePrice) || 0;
-            let moq = 100;
             
-            // 🔥 රු. 80ට අඩු බෑග් අනිවාර්යයෙන්ම 150 ක් වෙන්න හැදුවා 🔥
+            // 🔥 Dynamic MOQ Logic (Old logic integrated with new names) 🔥
+            let isSmallCategory = baseCustomTitle.includes("Mini") || baseCustomTitle.includes("Pharmacy") || baseCustomTitle.includes("Phone") || baseCustomTitle.includes("Gift") || baseCustomTitle.includes("Book") || baseCustomTitle.includes("Note");
+            let moq = isSmallCategory ? 150 : 100;
+
             if (numericPrice > 0 && numericPrice < 80) {
                 moq = 150;
-            } else if (numericPrice === 0) { // Custom බෑග් වලදී Category එක අනුව මුලින් පෙන්නන MOQ එක
-                let isLargeCategory = baseCustomTitle.includes("Market") || baseCustomTitle.includes("Cake") || baseCustomTitle.includes("Clothing") || baseCustomTitle.includes("Restaurant");
-                moq = isLargeCategory ? 100 : 150;
             }
 
             document.getElementById('moqDisplay').innerText = moq;
@@ -890,7 +933,7 @@
             document.getElementById('zoomLightbox').style.display = "none";
         }
 
-        // 🟢 Custom Pricing Engine (පරණ Calculation එක සහ Size Limits) 🟢
+        // 🟢 Custom Pricing Engine (පරණ Calculation එකමයි - අලුත් Categories වලටත් එකතු කළා) 🟢
         function calculateCustomPrice() {
             if (!isCustomBagMode) return;
             
@@ -903,8 +946,8 @@
 
             if (w > 0 && h > 0 && g >= 0) {
                 
-                let isLargeCategory = baseCustomTitle.includes("Market") || baseCustomTitle.includes("Cake") || baseCustomTitle.includes("Clothing") || baseCustomTitle.includes("Restaurant");
-                let isSmallCategory = baseCustomTitle.includes("Mini") || baseCustomTitle.includes("Pharmacy") || baseCustomTitle.includes("Tech") || baseCustomTitle.includes("Gift") || baseCustomTitle.includes("Book") || baseCustomTitle.includes("Phone");
+                let isLargeCategory = baseCustomTitle.includes("Market") || baseCustomTitle.includes("Cake") || baseCustomTitle.includes("Clothing") || baseCustomTitle.includes("Restaurant") || baseCustomTitle.includes("Boutique");
+                let isSmallCategory = baseCustomTitle.includes("Mini") || baseCustomTitle.includes("Pharmacy") || baseCustomTitle.includes("Phone") || baseCustomTitle.includes("Gift") || baseCustomTitle.includes("Book") || baseCustomTitle.includes("Note");
 
                 // ලොකු කැටගරි වල පුංචි බෑග් ගහන්න බැරි වෙන්න
                 if (isLargeCategory && (w <= 11 && h <= 12 && g <= 5)) {
@@ -922,26 +965,22 @@
                     return; 
                 }
 
-                // Standard Sizes Dictionary - මේ සයිස් එකක් ගැහුවොත් අනිවාර්යයෙන් මේ ගාණම එනවා
+                // Standard Sizes Dictionary - පරණ කෝඩ් එකේ ගණන් වලටම
                 const standardSizes = {
+                    "8x6x3": { w: 44, r: 69, o: 89 },
                     "10x8x3": { w: 49, r: 74, o: 94 },
                     "12x10x4": { w: 64, r: 89, o: 109 },
-                    "8x6x3": { w: 44, r: 69, o: 89 },
                     "12x10x5": { w: 69, r: 94, o: 114 },
-                    "14x12x5": { w: 79, r: 114, o: 139 },
-                    "14x11x3": { w: 69, r: 99, o: 119 },
-                    "16x12x4": { w: 79, r: 114, o: 139 },
-                    "10x10x10": { w: 74, r: 109, o: 129 },
-                    "7x11x11": { w: 74, r: 109, o: 129 },
-                    "12x15x15": { w: 129, r: 189, o: 229 },
-                    "12x10x8": { w: 74, r: 109, o: 129 },
-                    "14x12x8": { w: 89, r: 129, o: 154 },
-                    "16x14x5": { w: 84, r: 124, o: 149 },
-                    "18x16x6": { w: 104, r: 149, o: 179 },
-                    "13x15x6": { w: 84, r: 124, o: 149 },
+                    "13x15x6": { w: 83, r: 104, o: 144 },
                     "17x15x5": { w: 93, r: 134, o: 154 },
                     "17x15x8": { w: 108, r: 154, o: 184 },
-                    "17x15x10": { w: 118, r: 174, o: 204 }
+                    "17x15x10": { w: 118, r: 174, o: 204 },
+                    "7x10x10": { w: 68, r: 93, o: 113 },
+                    "7x11x11": { w: 73, r: 98, o: 118 },
+                    "10x10x10": { w: 78, r: 103, o: 123 },
+                    "7x13x13": { w: 88, r: 113, o: 133 },
+                    "13x13x13": { w: 113, r: 138, o: 158 },
+                    "12x15x15": { w: 128, r: 153, o: 173 }
                 };
 
                 let lookupKey = `${h}x${w}x${g}`;
@@ -952,11 +991,10 @@
                     finalR = standardSizes[lookupKey].r;
                     finalO = standardSizes[lookupKey].o;
                 } else {
-                    // පරණ Calculation සිස්ටම් එක ඒ විදිහටම
+                    // පරණ Calculation සිස්ටම් එක ඒ විදිහටම (අලුත් Categories වලටත් එකතු කළා)
                     let area = (w + g + 1) * (h * 2 + g + 2);
                     let rawPrice = area * 0.085 + 25; 
 
-                    // Market / Cake / Restaurant / Clothing වලට පරණ ඩිස්කවුන්ට් එක
                     if (isLargeCategory) {
                         rawPrice = rawPrice - 6; 
                     }
@@ -1273,7 +1311,9 @@
 
         // 🟢 Outline Icons ටික Load කරන්න 🟢
         document.addEventListener("DOMContentLoaded", function() {
-            lucide.createIcons(); // Emojis වෙනුවට ලස්සන Icons load වෙනවා
+            if(typeof lucide !== 'undefined') {
+                lucide.createIcons(); // Emojis වෙනුවට ලස්සන Icons load වෙනවා
+            }
             setupDraggableGallery('workGallery');
             setupDraggableGallery('reviewGallery');
         });
